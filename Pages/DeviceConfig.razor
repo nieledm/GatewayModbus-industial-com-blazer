@@ -1,14 +1,10 @@
-
 @page "/config"
 @using System.Text.Json
 @inject IJSRuntime JS
 @using Microsoft.AspNetCore.Components.Forms
 @using DL6000WebConfig.Models
-
-@* Injetando o serviço de configuração *@
 @using DL6000WebConfig.Services
 @inject ConfigService ConfigService
-
 
 <h3>Configuração de Equipamentos DL6000</h3>
 
@@ -53,8 +49,17 @@
     <input @bind="form.TimeoutReceive" class="form-control" />
 </div>
 
-<button @onclick="AddDevice" class="btn btn-primary me-2">Adicionar Equipamento</button>
-<button @onclick="ExportJson" class="btn btn-secondary">Exportar Configuração</button>
+@if (!modoEdicao)
+{
+    <button @onclick="AddDevice" class="btn btn-primary me-2">Adicionar Equipamento</button>
+}
+else
+{
+    <button @onclick="SalvarAlteracoes" class="btn btn-success me-2">Salvar Alterações</button>
+    <button @onclick="CancelarEdicao" class="btn btn-secondary">Cancelar</button>
+}
+
+<button @onclick="ExportJson" class="btn btn-secondary ms-2">Exportar Configuração</button>
 <input type="file" @onchange="ImportJson" class="form-control mt-2" />
 
 <hr />
@@ -62,18 +67,27 @@
 @if (devices.Count > 0)
 {
     <h5>Equipamentos cadastrados:</h5>
-    <ul>
-        @foreach (var d in devices)
+    <ul class="list-group">
+        @foreach (var d in devices.Select((value, index) => new { value, index }))
         {
-            <li>@d.Name - @d.Ip:@d.Port</li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                @d.value.Name - @d.value.Ip:@d.value.Port
+                <button class="btn btn-sm btn-outline-primary" @onclick="() => EditarEquipamento(d.index)">Editar</button>
+            </li>
         }
     </ul>
 }
 
 @code {
-
     private DeviceConfigModel form = new();
     private List<DeviceConfigModel> devices = new();
+    private bool modoEdicao = false;
+    private int indiceEdicao = -1;
+
+    protected override void OnInitialized()
+    {
+        devices = ConfigService.GetDevices();
+    }
 
     private void AddDevice()
     {
@@ -94,7 +108,58 @@
             TimeoutReceive = form.TimeoutReceive
         });
 
-        form = new(); // limpa o formulário
+        form = new();
+    }
+
+    private void EditarEquipamento(int index)
+    {
+        var item = devices[index];
+        form = new DeviceConfigModel
+        {
+            Name = item.Name,
+            Ip = item.Ip,
+            Port = item.Port,
+            UnitId1 = item.UnitId1,
+            UnitId2 = item.UnitId2,
+            StartIndexDL1 = item.StartIndexDL1,
+            StartIndexDL2 = item.StartIndexDL2,
+            Cycle = item.Cycle,
+            TimeoutSend = item.TimeoutSend,
+            TimeoutReceive = item.TimeoutReceive
+        };
+        modoEdicao = true;
+        indiceEdicao = index;
+    }
+
+    private void SalvarAlteracoes()
+    {
+        if (indiceEdicao >= 0 && indiceEdicao < devices.Count)
+        {
+            devices[indiceEdicao] = new DeviceConfigModel
+            {
+                Name = form.Name,
+                Ip = form.Ip,
+                Port = form.Port,
+                UnitId1 = form.UnitId1,
+                UnitId2 = form.UnitId2,
+                StartIndexDL1 = form.StartIndexDL1,
+                StartIndexDL2 = form.StartIndexDL2,
+                Cycle = form.Cycle,
+                TimeoutSend = form.TimeoutSend,
+                TimeoutReceive = form.TimeoutReceive
+            };
+        }
+
+        modoEdicao = false;
+        indiceEdicao = -1;
+        form = new();
+    }
+
+    private void CancelarEdicao()
+    {
+        modoEdicao = false;
+        indiceEdicao = -1;
+        form = new();
     }
 
     private async Task ExportJson()
@@ -102,9 +167,10 @@
         var json = JsonSerializer.Serialize(devices, new JsonSerializerOptions { WriteIndented = true });
         await JS.InvokeVoidAsync("downloadFile", "config-dl6000.json", "application/json", json);
     }
+
     private async Task ImportJson(ChangeEventArgs e)
     {
-        var file = ((Microsoft.AspNetCore.Components.Forms.IBrowserFile)e.Value);
+        var file = ((IBrowserFile)e.Value);
         var buffer = new byte[file.Size];
         await file.OpenReadStream().ReadAsync(buffer);
         var json = System.Text.Encoding.UTF8.GetString(buffer);
@@ -115,9 +181,4 @@
             devices = importedDevices;
         }
     }
-
-    protected override void OnInitialized()
-    {
-        devices = ConfigService.GetDevices();
-    }  
 }

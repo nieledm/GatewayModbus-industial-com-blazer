@@ -7,6 +7,8 @@ C:\Users\Niele\Desktop\DL6000\DL6000WebConfig\bin\Debug\net6.0\DL6000WebConfig.d
 C:\Users\Niele\Desktop\DL6000\DL6000WebConfig\bin\Debug\net6.0\DL6000WebConfig.runtimeconfig.json
 C:\Users\Niele\Desktop\DL6000\DL6000WebConfig\bin\Debug\net6.0\DL6000WebConfig.dll
 C:\Users\Niele\Desktop\DL6000\DL6000WebConfig\bin\Debug\net6.0\DL6000WebConfig.pdb
+C:\Users\Niele\Desktop\DL6000\DL6000WebConfig\bin\Debug\net6.0\NModbus4.dll
+C:\Users\Niele\Desktop\DL6000\DL6000WebConfig\obj\Debug\net6.0\DL6000WebConfig.csproj.AssemblyReference.cache
 C:\Users\Niele\Desktop\DL6000\DL6000WebConfig\obj\Debug\net6.0\DL6000WebConfig.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Niele\Desktop\DL6000\DL6000WebConfig\obj\Debug\net6.0\DL6000WebConfig.AssemblyInfoInputs.cache
 C:\Users\Niele\Desktop\DL6000\DL6000WebConfig\obj\Debug\net6.0\DL6000WebConfig.AssemblyInfo.cs
@@ -14,6 +16,7 @@ C:\Users\Niele\Desktop\DL6000\DL6000WebConfig\obj\Debug\net6.0\DL6000WebConfig.c
 C:\Users\Niele\Desktop\DL6000\DL6000WebConfig\obj\Debug\net6.0\DL6000WebConfig.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Niele\Desktop\DL6000\DL6000WebConfig\obj\Debug\net6.0\DL6000WebConfig.RazorAssemblyInfo.cache
 C:\Users\Niele\Desktop\DL6000\DL6000WebConfig\obj\Debug\net6.0\DL6000WebConfig.RazorAssemblyInfo.cs
+C:\Users\Niele\Desktop\DL6000\DL6000WebConfig\obj\Debug\net6.0\DL6000WebConfig.sourcelink.json
 C:\Users\Niele\Desktop\DL6000\DL6000WebConfig\obj\Debug\net6.0\scopedcss\Shared\MainLayout.razor.rz.scp.css
 C:\Users\Niele\Desktop\DL6000\DL6000WebConfig\obj\Debug\net6.0\scopedcss\Shared\NavMenu.razor.rz.scp.css
 C:\Users\Niele\Desktop\DL6000\DL6000WebConfig\obj\Debug\net6.0\scopedcss\bundle\DL6000WebConfig.styles.css
@@ -27,6 +30,7 @@ C:\Users\Niele\Desktop\DL6000\DL6000WebConfig\obj\Debug\net6.0\staticwebassets\m
 C:\Users\Niele\Desktop\DL6000\DL6000WebConfig\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.DL6000WebConfig.props
 C:\Users\Niele\Desktop\DL6000\DL6000WebConfig\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.DL6000WebConfig.props
 C:\Users\Niele\Desktop\DL6000\DL6000WebConfig\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\Niele\Desktop\DL6000\DL6000WebConfig\obj\Debug\net6.0\DL6000We.6FDA537F.Up2Date
 C:\Users\Niele\Desktop\DL6000\DL6000WebConfig\obj\Debug\net6.0\DL6000WebConfig.dll
 C:\Users\Niele\Desktop\DL6000\DL6000WebConfig\obj\Debug\net6.0\refint\DL6000WebConfig.dll
 C:\Users\Niele\Desktop\DL6000\DL6000WebConfig\obj\Debug\net6.0\DL6000WebConfig.pdb

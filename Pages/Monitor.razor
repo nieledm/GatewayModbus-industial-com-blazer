@@ -1,0 +1,68 @@
+@page "/monitor"
+@inject HttpClient Http
+@using DL6000WebConfig.Models
+@implements IDisposable
+
+<h3>Monitoramento em Tempo Real</h3>
+
+@if (variables.Count == 0)
+{
+    <p>Carregando variáveis...</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Função</th>
+                <th>Offset</th>
+                <th>Endereço</th>
+                <th>Valor Atual</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var variable in variables)
+            {
+                <tr>
+                    <td>@variable.Name</td>
+                    <td>@variable.FunctionCode</td>
+                    <td>@variable.Offset</td>
+                    <td>@variable.Address</td>
+                    <td>@variable.Value</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<ModbusVariable> variables = new();
+    private System.Threading.Timer? timer;
+
+    protected override void OnInitialized()
+    {
+        timer = new Timer(UpdateValues, null, 0, 3000); // a cada 3 segundos
+    }
+
+    private async void UpdateValues(object? state)
+    {
+        try
+        {
+            var data = await Http.GetFromJsonAsync<List<ModbusVariable>>("/api/modbus/variables");
+            if (data != null)
+                variables = data;
+
+            InvokeAsync(StateHasChanged); // força recarregar o UI
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Erro ao atualizar variáveis: " + ex.Message);
+        }
+    }
+
+    public void Dispose()
+    {
+        timer?.Dispose();
+    }
+}
