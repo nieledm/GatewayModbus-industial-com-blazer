@@ -14,46 +14,88 @@ else
     <table class="table">
         <thead>
             <tr>
+                <th>Dispositivo</th>
                 <th>Nome</th>
                 <th>Função</th>
                 <th>Offset</th>
                 <th>Endereço</th>
                 <th>Valor Atual</th>
+                <th>Ações</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var variable in variables)
             {
                 <tr>
-                    <td>@variable.Name</td>
-                    <td>@variable.FunctionCode</td>
-                    <td>@variable.Offset</td>
+                    <td>@variable.DeviceName</td>
+                    <td><input class="form-control" @bind="variable.Name" /></td>
+                    <td><input class="form-control" @bind="variable.FunctionCode" /></td>
+                    <td><input class="form-control" @bind="variable.Offset" @oninput="e => UpdateAddress(variable)" /></td>
                     <td>@variable.Address</td>
                     <td>@variable.Value</td>
+                    <td>
+                        <button class="btn btn-danger btn-sm" @onclick="() => RemoveVariable(variable)">Remover</button>
+                    </td>
                 </tr>
             }
         </tbody>
     </table>
+
+    <button class="btn btn-success" @onclick="AddVariable">Adicionar Nova Variável</button>
+
 }
+
+<h5>Adicionar Nova Variável</h5>
+<div class="row">
+    <div class="col-md-3">
+        <input class="form-control" placeholder="Nome" @bind="newVar.Name" />
+    </div>
+    <div class="col-md-2">
+        <input class="form-control" placeholder="Função" @bind="newVar.FunctionCode" />
+    </div>
+    <div class="col-md-2">
+        <input class="form-control" placeholder="Offset" type="number" @bind="newVar.Offset" />
+    </div>
+    <div class="col-md-2">
+        <button class="btn btn-success" @onclick="AddVariable">Adicionar</button>
+    </div>
+</div>
 
 @code {
     private List<ModbusVariable> variables = new();
+    private ModbusVariable newVar = new();
     private System.Threading.Timer? timer;
 
     protected override void OnInitialized()
     {
-        timer = new Timer(UpdateValues, null, 0, 3000); // a cada 3 segundos
+        LoadVariables();
+        timer = new Timer(UpdateValues, null, 0, 3000); // Atualiza a cada 3s
     }
 
-    private async void UpdateValues(object? state)
+    private async void LoadVariables()
     {
         try
         {
             var data = await Http.GetFromJsonAsync<List<ModbusVariable>>("/api/modbus/variables");
             if (data != null)
                 variables = data;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Erro ao carregar variáveis: " + ex.Message);
+        }
+    }
 
-            InvokeAsync(StateHasChanged); // força recarregar o UI
+    private async void UpdateValues(object? state)
+    {
+        try
+        {
+            foreach (var v in variables)
+            {
+                v.Value = MosbusSlaveTcpWrapper.GetValue(v.Offset);
+                v.Address = $"4000{v.Offset + 1}";
+            }
+            await InvokeAsync(StateHasChanged);
         }
         catch (Exception ex)
         {
@@ -61,8 +103,39 @@ else
         }
     }
 
+    private void AddVariable()
+    {
+        if (string.IsNullOrWhiteSpace(newVar.Name) || newVar.Offset < 0) return;
+
+        newVar.Address = $"4000{newVar.Offset + 1}";
+        newVar.Value = MosbusSlaveTcpWrapper.GetValue(newVar.Offset);
+
+        variables.Add(new ModbusVariable
+        {
+            Name = newVar.Name,
+            FunctionCode = newVar.FunctionCode,
+            Offset = newVar.Offset,
+            Address = newVar.Address,
+            Value = newVar.Value
+        });
+
+        newVar = new();
+    }
+
+    private void RemoveVariable(ModbusVariable variable)
+    {
+        variables.Remove(variable);
+    }
+
     public void Dispose()
     {
         timer?.Dispose();
     }
+
+    private void UpdateAddress(ModbusVariable v)
+    {
+        v.Address = $"40{(v.Offset + 1).ToString("D3")}";
+    }
+}
+
 }
