@@ -1,0 +1,123 @@
+
+@page "/config"
+@using System.Text.Json
+@inject IJSRuntime JS
+@using Microsoft.AspNetCore.Components.Forms
+@using DL6000WebConfig.Models
+
+@* Injetando o serviço de configuração *@
+@using DL6000WebConfig.Services
+@inject ConfigService ConfigService
+
+
+<h3>Configuração de Equipamentos DL6000</h3>
+
+<div class="mb-3">
+    <label>Nome:</label>
+    <input @bind="form.Name" class="form-control" />
+</div>
+<div class="mb-3">
+    <label>IP:</label>
+    <input @bind="form.Ip" class="form-control" />
+</div>
+<div class="mb-3">
+    <label>Porta:</label>
+    <input @bind="form.Port" class="form-control" />
+</div>
+<div class="mb-3">
+    <label>Unit ID 1:</label>
+    <input @bind="form.UnitId1" class="form-control" />
+</div>
+<div class="mb-3">
+    <label>Unit ID 2:</label>
+    <input @bind="form.UnitId2" class="form-control" />
+</div>
+<div class="mb-3">
+    <label>Start Index DL1:</label>
+    <input @bind="form.StartIndexDL1" class="form-control" />
+</div>
+<div class="mb-3">
+    <label>Start Index DL2:</label>
+    <input @bind="form.StartIndexDL2" class="form-control" />
+</div>
+<div class="mb-3">
+    <label>Ciclo (ms):</label>
+    <input @bind="form.Cycle" class="form-control" />
+</div>
+<div class="mb-3">
+    <label>Timeout Envio:</label>
+    <input @bind="form.TimeoutSend" class="form-control" />
+</div>
+<div class="mb-3">
+    <label>Timeout Recebimento:</label>
+    <input @bind="form.TimeoutReceive" class="form-control" />
+</div>
+
+<button @onclick="AddDevice" class="btn btn-primary me-2">Adicionar Equipamento</button>
+<button @onclick="ExportJson" class="btn btn-secondary">Exportar Configuração</button>
+<input type="file" @onchange="ImportJson" class="form-control mt-2" />
+
+<hr />
+
+@if (devices.Count > 0)
+{
+    <h5>Equipamentos cadastrados:</h5>
+    <ul>
+        @foreach (var d in devices)
+        {
+            <li>@d.Name - @d.Ip:@d.Port</li>
+        }
+    </ul>
+}
+
+@code {
+
+    private DeviceConfigModel form = new();
+    private List<DeviceConfigModel> devices = new();
+
+    private void AddDevice()
+    {
+        if (string.IsNullOrWhiteSpace(form.Name) || string.IsNullOrWhiteSpace(form.Ip))
+            return;
+
+        devices.Add(new DeviceConfigModel
+        {
+            Name = form.Name,
+            Ip = form.Ip,
+            Port = form.Port,
+            UnitId1 = form.UnitId1,
+            UnitId2 = form.UnitId2,
+            StartIndexDL1 = form.StartIndexDL1,
+            StartIndexDL2 = form.StartIndexDL2,
+            Cycle = form.Cycle,
+            TimeoutSend = form.TimeoutSend,
+            TimeoutReceive = form.TimeoutReceive
+        });
+
+        form = new(); // limpa o formulário
+    }
+
+    private async Task ExportJson()
+    {
+        var json = JsonSerializer.Serialize(devices, new JsonSerializerOptions { WriteIndented = true });
+        await JS.InvokeVoidAsync("downloadFile", "config-dl6000.json", "application/json", json);
+    }
+    private async Task ImportJson(ChangeEventArgs e)
+    {
+        var file = ((Microsoft.AspNetCore.Components.Forms.IBrowserFile)e.Value);
+        var buffer = new byte[file.Size];
+        await file.OpenReadStream().ReadAsync(buffer);
+        var json = System.Text.Encoding.UTF8.GetString(buffer);
+        var importedDevices = JsonSerializer.Deserialize<List<DeviceConfigModel>>(json);
+
+        if (importedDevices != null)
+        {
+            devices = importedDevices;
+        }
+    }
+
+    protected override void OnInitialized()
+    {
+        devices = ConfigService.GetDevices();
+    }  
+}
