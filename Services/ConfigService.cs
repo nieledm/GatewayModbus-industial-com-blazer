@@ -55,82 +55,75 @@ namespace DL6000WebConfig.Services
 
             return devices;
         }
-        public List<ModbusVariable> GetDefaultVariables()
-        {
-            var list = new List<ModbusVariable>();
+        
 
-            // Exemplo estático só com DL6000_1 por enquanto:
-            list.Add(new ModbusVariable
-            {
-                DeviceName = "DL6000_1",
-                Name = "Vazão",
-                FunctionCode = "19",
-                Offset = 4,
-                Address = $"4000{4 + 1}",
-                Value = MosbusSlaveTcpWrapper.GetValue(4)
-            });
-
-            list.Add(new ModbusVariable
-            {
-                DeviceName = "DL6000_1",
-                Name = "Temperatura",
-                FunctionCode = "1A",
-                Offset = 5,
-                Address = $"4000{5 + 1}",
-                Value = MosbusSlaveTcpWrapper.GetValue(5)
-            });
-
-            return list;
-        }
-
-        //retorna uma lista simples
+        //Mapeando os endereços do arquivo DL6000_TO_MODBUS_SLAVE.exe.config
         public List<ModbusVariable> GetConfiguredVariables()
         {
-            var devices = GetDevices(); // já existe
+            var appSettings = _xml.Root?
+                .Element("appSettings")?
+                .Elements("add")
+                .ToList();
+
             var result = new List<ModbusVariable>();
+            if (appSettings == null) return result;
 
-            foreach (var d in devices)
+            // Dicionário de aliases (pode ser expandido)
+            var aliases = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
             {
-                if (int.TryParse(d.StartIndexDL1, out int dl1) && dl1 > 0)
-                {
-                    result.Add(new ModbusVariable
-                    {
-                        DeviceName = d.Name,
-                        Name = "Função 19 (DL1)",
-                        FunctionCode = "19",
-                        Offset = dl1
-                    });
-                }
+                { "DL1", "Vazão" },
+                { "DL2", "Temperatura" },
+                { "Pressao", "Pressão" },
+                { "Nivel", "Nível" },
+                { "TempAmb", "Temperatura Ambiente" },
+            };
 
-                if (int.TryParse(d.StartIndexDL2, out int dl2) && dl2 > 0)
+            // Descobre os sufixos únicos (ex: 1, 2, 3)
+            var suffixes = appSettings
+                .Select(x => x.Attribute("key")?.Value)
+                .Where(k => k != null && k.Contains("_DL_6000_"))
+                .Select(k => k!.Split("_DL_6000_").Last())
+                .Distinct();
+
+            foreach (var suffix in suffixes)
+            {
+                string deviceName = "DL6000_" + suffix;
+
+                // Pega todas as chaves desse equipamento
+                var keysForDevice = appSettings
+                    .Where(e => e.Attribute("key")?.Value?.EndsWith($"_DL_6000_{suffix}") == true)
+                    .ToList();
+
+                foreach (var entry in keysForDevice)
                 {
-                    result.Add(new ModbusVariable
+                    var fullKey = entry.Attribute("key")?.Value ?? "";
+                    var value = entry.Attribute("value")?.Value ?? "";
+
+                    if (string.IsNullOrEmpty(fullKey) || !fullKey.StartsWith("StartIndex")) continue;
+
+                    // Pega o tipo da variável, ex: DL1, DL2, Pressao...
+                    string rawType = fullKey.Replace("StartIndex", "").Split("_DL_6000_")[0];
+                    string name = aliases.ContainsKey(rawType) ? aliases[rawType] : rawType;
+
+                    if (int.TryParse(value, out int offset))
                     {
-                        DeviceName = d.Name,
-                        Name = "Função 19 (DL2)",
-                        FunctionCode = "19",
-                        Offset = dl2
-                    });
+                        result.Add(new ModbusVariable
+                        {
+                            DeviceName = deviceName,
+                            Name = name,
+                            FunctionCode = "19", // fixo por enquanto
+                            Offset = offset,
+                            Address = $"4{(offset + 1).ToString("D4")}",
+                            Value = MosbusSlaveTcpWrapper.GetValue(offset)
+                        });
+                    }
                 }
             }
 
             return result;
-}
-
+        }     
 
     }
 
-    // public class DeviceConfigModel
-    // {
-    //     public string Name { get; set; } = "";
-    //     public string Ip { get; set; } = "";
-    //     public string Port { get; set; } = "502";
-    //     public string UnitId1 { get; set; } = "1";
-    //     public string UnitId2 { get; set; } = "2";
-    //     public string StartIndexDL1 { get; set; } = "2";
-    //     public string StartIndexDL2 { get; set; } = "32";
-    //     public string Cycle { get; set; } = "1000";
-    //     public string TimeoutSend { get; set; } = "4000";
-    //     public string TimeoutReceive { get; set; } = "4000";
-    // }
+
 }

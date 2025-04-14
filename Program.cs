@@ -11,7 +11,7 @@ builder.Services.AddServerSideBlazor();
 
 builder.Services.AddHttpClient("api", client =>
 {
-    client.BaseAddress = new Uri("http://localhost:7297"); // Use a porta real do seu app
+    client.BaseAddress = new Uri("https://localhost:7297"); // HTTPS!
 });
 
 builder.Services.AddSingleton<WeatherForecastService>();
