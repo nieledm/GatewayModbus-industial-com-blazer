@@ -8,8 +8,19 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
-builder.Services.AddHttpClient();
+
+builder.Services.AddHttpClient("api", client =>
+{
+    client.BaseAddress = new Uri("http://localhost:7297"); // Use a porta real do seu app
+});
+
 builder.Services.AddSingleton<WeatherForecastService>();
+
+builder.Services.AddScoped<HttpClient>(sp =>
+{
+    var navManager = sp.GetRequiredService<NavigationManager>();
+    return new HttpClient { BaseAddress = new Uri(navManager.BaseUri) };
+});;
 
 //adicionando o caminho do arquivo de configurção do DL6000
 builder.Services.AddSingleton(new ConfigService(Path.Combine("..", "DL6000_TO_MODBUS_SLAVE.exe.config")));

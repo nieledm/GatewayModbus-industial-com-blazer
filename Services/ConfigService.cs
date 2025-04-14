@@ -55,6 +55,69 @@ namespace DL6000WebConfig.Services
 
             return devices;
         }
+        public List<ModbusVariable> GetDefaultVariables()
+        {
+            var list = new List<ModbusVariable>();
+
+            // Exemplo estático só com DL6000_1 por enquanto:
+            list.Add(new ModbusVariable
+            {
+                DeviceName = "DL6000_1",
+                Name = "Vazão",
+                FunctionCode = "19",
+                Offset = 4,
+                Address = $"4000{4 + 1}",
+                Value = MosbusSlaveTcpWrapper.GetValue(4)
+            });
+
+            list.Add(new ModbusVariable
+            {
+                DeviceName = "DL6000_1",
+                Name = "Temperatura",
+                FunctionCode = "1A",
+                Offset = 5,
+                Address = $"4000{5 + 1}",
+                Value = MosbusSlaveTcpWrapper.GetValue(5)
+            });
+
+            return list;
+        }
+
+        //retorna uma lista simples
+        public List<ModbusVariable> GetConfiguredVariables()
+        {
+            var devices = GetDevices(); // já existe
+            var result = new List<ModbusVariable>();
+
+            foreach (var d in devices)
+            {
+                if (int.TryParse(d.StartIndexDL1, out int dl1) && dl1 > 0)
+                {
+                    result.Add(new ModbusVariable
+                    {
+                        DeviceName = d.Name,
+                        Name = "Função 19 (DL1)",
+                        FunctionCode = "19",
+                        Offset = dl1
+                    });
+                }
+
+                if (int.TryParse(d.StartIndexDL2, out int dl2) && dl2 > 0)
+                {
+                    result.Add(new ModbusVariable
+                    {
+                        DeviceName = d.Name,
+                        Name = "Função 19 (DL2)",
+                        FunctionCode = "19",
+                        Offset = dl2
+                    });
+                }
+            }
+
+            return result;
+}
+
+
     }
 
     // public class DeviceConfigModel

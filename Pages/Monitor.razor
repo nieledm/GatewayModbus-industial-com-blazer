@@ -1,7 +1,9 @@
 @page "/monitor"
-@inject HttpClient Http
 @using DL6000WebConfig.Models
 @implements IDisposable
+@inject DL6000WebConfig.Services.ConfigService ConfigService
+
+@* @inject IHttpClientFactory ClientFactory *@
 
 <h3>Monitoramento em Tempo Real</h3>
 
@@ -42,7 +44,6 @@ else
     </table>
 
     <button class="btn btn-success" @onclick="AddVariable">Adicionar Nova Variável</button>
-
 }
 
 <h5>Adicionar Nova Variável</h5>
@@ -65,61 +66,38 @@ else
     private List<ModbusVariable> variables = new();
     private ModbusVariable newVar = new();
     private System.Threading.Timer? timer;
+    //private HttpClient? httpClient;
+    private HttpClient? client;
 
     protected override void OnInitialized()
     {
         LoadVariables();
-        timer = new Timer(UpdateValues, null, 0, 3000); // Atualiza a cada 3s
+
+        timer = new Timer(_ =>
+        {
+            LoadVariables();
+            InvokeAsync(StateHasChanged);
+        }, null, 0, 3000);
     }
 
-    private async void LoadVariables()
+    private async Task LoadVariables()
     {
-        try
-        {
-            var data = await Http.GetFromJsonAsync<List<ModbusVariable>>("/api/modbus/variables");
-            if (data != null)
-                variables = data;
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine("Erro ao carregar variáveis: " + ex.Message);
-        }
+        variables = ConfigService.GetConfiguredVariables();
     }
-
-    private async void UpdateValues(object? state)
-    {
-        try
-        {
-            foreach (var v in variables)
-            {
-                v.Value = MosbusSlaveTcpWrapper.GetValue(v.Offset);
-                v.Address = $"4000{v.Offset + 1}";
-            }
-            await InvokeAsync(StateHasChanged);
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine("Erro ao atualizar variáveis: " + ex.Message);
-        }
-    }
-
-    private void AddVariable()
+    private async Task AddVariable()
     {
         if (string.IsNullOrWhiteSpace(newVar.Name) || newVar.Offset < 0) return;
 
         newVar.Address = $"4000{newVar.Offset + 1}";
         newVar.Value = MosbusSlaveTcpWrapper.GetValue(newVar.Offset);
 
-        variables.Add(new ModbusVariable
+        if (client != null)
         {
-            Name = newVar.Name,
-            FunctionCode = newVar.FunctionCode,
-            Offset = newVar.Offset,
-            Address = newVar.Address,
-            Value = newVar.Value
-        });
+            await client.PostAsJsonAsync("/api/modbus/variables", newVar);
+        }
 
-        newVar = new();
+        newVar = new(); // limpa formulário
+        await LoadVariables(); // recarrega a lista da API
     }
 
     private void RemoveVariable(ModbusVariable variable)
@@ -127,15 +105,13 @@ else
         variables.Remove(variable);
     }
 
-    public void Dispose()
-    {
-        timer?.Dispose();
-    }
-
     private void UpdateAddress(ModbusVariable v)
     {
         v.Address = $"40{(v.Offset + 1).ToString("D3")}";
     }
-}
 
+    public void Dispose()
+    {
+        timer?.Dispose();
+    }
 }
