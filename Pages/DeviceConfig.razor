@@ -6,6 +6,22 @@
 @using DL6000WebConfig.Services
 @inject ConfigService ConfigService
 
+@if (devices.Count > 0)
+{
+    <h3>Equipamentos cadastrados:</h3>
+    <ul class="list-group">
+        @foreach (var d in devices.Select((value, index) => new { value, index }))
+        {
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                @d.value.Name - @d.value.Ip:@d.value.Port
+                <button class="btn btn-sm btn-outline-primary" @onclick="() => EditarEquipamento(d.index)">Editar</button>
+            </li>
+        }
+    </ul>
+    <p></p>
+    <p></p>
+}
+
 <h3>Configuração de Equipamentos DL6000</h3>
 
 <div class="mb-3">
@@ -63,20 +79,6 @@ else
 <input type="file" @onchange="ImportJson" class="form-control mt-2" />
 
 <hr />
-
-@if (devices.Count > 0)
-{
-    <h5>Equipamentos cadastrados:</h5>
-    <ul class="list-group">
-        @foreach (var d in devices.Select((value, index) => new { value, index }))
-        {
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                @d.value.Name - @d.value.Ip:@d.value.Port
-                <button class="btn btn-sm btn-outline-primary" @onclick="() => EditarEquipamento(d.index)">Editar</button>
-            </li>
-        }
-    </ul>
-}
 
 @code {
     private DeviceConfigModel form = new();

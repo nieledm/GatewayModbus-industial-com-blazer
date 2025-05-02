@@ -1,0 +1,194 @@
+@* @page "/monitor"
+@using DL6000WebConfig.Models
+@inject HttpClient Http
+@inject DL6000WebConfig.Services.ConfigService ConfigService
+@inject IHttpClientFactory ClientFactory
+
+<h3>Monitoramento em Tempo Real</h3>
+
+@if (variables.Count == 0)
+{
+    <p>Carregando variáveis...</p>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Dispositivo</th>
+                <th>Nome</th>
+                <th>Função</th>
+                <th>Offset</th>
+                <th>Endereço</th>
+                <th>Valor Atual</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var variable in variables)
+            {
+                <tr>
+                    <td>@variable.DeviceName</td>
+                    <td><input class="form-control" @bind="variable.Name" /></td>
+                    <td><input class="form-control" @bind="variable.FunctionCode" /></td>
+                    <td><input class="form-control" type="number" @bind="variable.Offset" /></td>
+                    <td>@variable.Address</td>
+                    <td>@variable.Value</td>
+                    <td>
+                        <button class="btn btn-primary btn-sm" @onclick="() => SaveVariable(variable)">Salvar</button>
+                        <button class="btn btn-danger btn-sm" @onclick="() => RemoveVariable(variable)">Remover</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<hr />
+<h5>Adicionar Nova Variável</h5>
+<div class="row g-2">
+    <div class="col-md-3">
+        <input class="form-control" placeholder="Nome" @bind="newVar.Name" />
+    </div>
+    <div class="col-md-2">
+        <input class="form-control" placeholder="Função" @bind="newVar.FunctionCode" />
+    </div>
+    <div class="col-md-2">
+        <input class="form-control" placeholder="Offset" type="number" @bind="newVar.Offset" />
+    </div>
+    <div class="col-md-3">
+        <select class="form-control" @bind="newVar.DeviceName">
+            <option value="">-- Dispositivo --</option>
+            @foreach (var d in deviceNames)
+            {
+                <option value="@d">@d</option>
+            }
+        </select>
+    </div>
+    <div class="col-md-2">
+        <button class="btn btn-success w-100" @onclick="AddVariable">Adicionar</button>
+    </div>
+</div>
+
+@code {
+    private List<ModbusVariable> variables = new();
+    private ModbusVariable newVar = new();
+    private List<string> deviceNames = new();
+    private System.Threading.Timer? timer;
+    private HttpClient? client;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try 
+        {
+            client = ClientFactory.CreateClient("api");
+            await LoadVariables();
+
+            // Carrega dispositivos do .config
+            var devices = ConfigService.GetDevices();
+            deviceNames = devices.Select(d => d.Name).ToList();
+
+            timer = new Timer(async _ =>
+            {
+                try
+                {
+                    await LoadVariables();
+                    await InvokeAsync(StateHasChanged);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Erro ao atualizar variáveis: " + ex.Message);
+                }
+            }, null, 0, 3000);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Erro na inicialização: {ex}");
+            // Considere adicionar um tratamento visual para o usuário
+        }        
+    }
+
+    private async Task LoadVariables()
+    {
+        if (client == null) return;
+
+        try
+        {
+            var data = await client.GetFromJsonAsync<List<ModbusVariable>>("/api/modbus/variables");
+            if (data != null)
+                variables = data;
+        }
+        catch (HttpRequestException httpEx)
+        {
+            Console.WriteLine($"Erro HTTP ao carregar variáveis: {httpEx.StatusCode} - {httpEx.Message}");
+            if (httpEx.InnerException != null)
+            {
+                Console.WriteLine($"Inner Exception: {httpEx.InnerException}");
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Erro geral ao carregar variáveis: {ex}");
+        }
+    }
+
+    private async Task AddVariable()
+    {
+        try
+        {
+            if (string.IsNullOrWhiteSpace(newVar.Name) || newVar.Offset < 0 || string.IsNullOrWhiteSpace(newVar.DeviceName))
+                return;
+            
+            newVar.Address = $"40{(newVar.Offset + 1).ToString("D3")}";
+
+            await Http.PostAsJsonAsync("/api/modbus/variables", newVar);
+            newVar = new(); // limpa formulário
+            await LoadVariables(); // recarrega da API
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Erro ao adicionar variável: {ex}");
+        }
+    }
+
+    private async Task SaveVariable(ModbusVariable variable)
+    {
+        try
+        {
+            await Http.PutAsJsonAsync("/api/modbus/variables", variable);
+            await Task.Delay(200); // Garantia de gravação
+            await LoadVariables(); // Força recarregar o que foi salvo
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Erro ao salvar variável: {ex}");
+        }
+    }
+
+    private async Task RemoveVariable(ModbusVariable variable)
+    {
+        try{            
+            await Http.DeleteAsync($"/api/modbus/variables/{variable.DeviceName}/{variable.Offset}");
+            await LoadVariables();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Erro ao remover variável: {ex}");
+        }
+    }
+
+    public void Dispose()
+    {
+        try
+        {
+            timer?.Dispose();
+            client?.Dispose();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Erro no dispose: {ex}");
+        }
+    }
+}
+
+ *@

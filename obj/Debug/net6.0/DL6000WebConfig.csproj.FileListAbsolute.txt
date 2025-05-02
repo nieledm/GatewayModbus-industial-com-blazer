@@ -36,3 +36,4 @@ C:\Users\Niele\Desktop\DL6000\DL6000WebConfig\obj\Debug\net6.0\refint\DL6000WebC
 C:\Users\Niele\Desktop\DL6000\DL6000WebConfig\obj\Debug\net6.0\DL6000WebConfig.pdb
 C:\Users\Niele\Desktop\DL6000\DL6000WebConfig\obj\Debug\net6.0\DL6000WebConfig.genruntimeconfig.cache
 C:\Users\Niele\Desktop\DL6000\DL6000WebConfig\obj\Debug\net6.0\ref\DL6000WebConfig.dll
+C:\Users\Niele\Desktop\DL6000\DL6000WebConfig\bin\Debug\net6.0\variables.json

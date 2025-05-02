@@ -4,55 +4,52 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DL6000WebConfig.Controllers
 {
+    public class VariableUpdatePayload
+    {
+        public ModbusVariable Original { get; set; }
+        public ModbusVariable Updated { get; set; }
+    }
+
     [Route("api/modbus")]
     [ApiController]
     public class ModbusController : ControllerBase
     {
-        private static readonly List<ModbusVariable> manualVariables = new();
-        private readonly ConfigService _configService;
+        private readonly ModbusVariableService _variableService;
 
-        public ModbusController(ConfigService configService)
+        public ModbusController(ModbusVariableService variableService)
         {
-            _configService = configService;
+            _variableService = variableService;
         }
 
         [HttpGet("variables")]
         public ActionResult<List<ModbusVariable>> GetVariables()
         {
-            var allVariables = new List<ModbusVariable>();
-
-            // Adiciona as variáveis configuradas no .config
-            var configured = _configService.GetConfiguredVariables();
-            if (configured != null)
-                allVariables.AddRange(configured);
-
-            // Adiciona as variáveis adicionadas pela interface (dinamicamente)
-            allVariables.AddRange(manualVariables);
-
-            // Atualiza o valor e o endereço
-            foreach (var v in allVariables)
+            var variables = _variableService.GetAll();
+            foreach (var v in variables)
             {
-                v.Address = $"4000{v.Offset + 1}";
-                v.Value = MosbusSlaveTcpWrapper.GetValue(v.Offset);
+                v.Address = $"40{(v.Offset + 1):D3}";
             }
-
-            return allVariables;
+            return variables;
         }
 
         [HttpPost("variables")]
-        public IActionResult AddVariable([FromBody] ModbusVariable newVar)
+        public IActionResult AddVariable([FromBody] ModbusVariable variable)
         {
-            if (newVar != null)
-                manualVariables.Add(newVar);
+            _variableService.Add(variable);
             return Ok();
         }
 
-        [HttpDelete("variables/{offset}")]
-        public IActionResult DeleteVariable(int offset)
+        [HttpPut("variables")]
+        public IActionResult UpdateVariable([FromBody] VariableUpdatePayload payload)
         {
-            var v = manualVariables.FirstOrDefault(x => x.Offset == offset);
-            if (v != null)
-                manualVariables.Remove(v);
+            _variableService.Update(payload.Updated, payload.Original);
+            return Ok();
+        }
+
+        [HttpDelete("variables/{deviceName}/{offset}")]
+        public IActionResult DeleteVariable(string deviceName, int offset)
+        {
+            _variableService.Delete(deviceName, offset);
             return Ok();
         }
     }

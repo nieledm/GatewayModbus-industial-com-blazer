@@ -1,0 +1,37 @@
+[
+  {
+    "DeviceName": "DL6000_1",
+    "Name": "Vaz\u00E3o",
+    "Offset": 2,
+    "Address": "40003",
+    "Value": 0
+  },
+  {
+    "DeviceName": "DL6000_1",
+    "Name": "Temperatura",
+    "Offset": 32,
+    "Address": "40033",
+    "Value": 0
+  },
+  {
+    "DeviceName": "DL6000_2",
+    "Name": "Vaz\u00E3o",
+    "Offset": 62,
+    "Address": "40063",
+    "Value": 0
+  },
+  {
+    "DeviceName": "DL6000_2",
+    "Name": "Vaz\u00E3o",
+    "Offset": 0,
+    "Address": "40063",
+    "Value": 0
+  },
+  {
+    "DeviceName": "DL6000_2",
+    "Name": "Niele_mudando",
+    "Offset": 45,
+    "Address": "40046",
+    "Value": 0
+  }
+]

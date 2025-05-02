@@ -56,74 +56,103 @@ namespace DL6000WebConfig.Services
             return devices;
         }
         
-
-        //Mapeando os endereços do arquivo DL6000_TO_MODBUS_SLAVE.exe.config
-        public List<ModbusVariable> GetConfiguredVariables()
+        private void Save()
         {
-            var appSettings = _xml.Root?
-                .Element("appSettings")?
-                .Elements("add")
-                .ToList();
+            _xml.Save(_path);
+        }
+   
+        public void AddDevice(DeviceConfigModel device)
+        {
+            string suffix = device.Name.Replace("DL6000_", "");
 
-            var result = new List<ModbusVariable>();
-            if (appSettings == null) return result;
-
-            // Dicionário de aliases (pode ser expandido)
-            var aliases = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+            var settings = new Dictionary<string, string>
             {
-                { "DL1", "Vazão" },
-                { "DL2", "Temperatura" },
-                { "Pressao", "Pressão" },
-                { "Nivel", "Nível" },
-                { "TempAmb", "Temperatura Ambiente" },
+                { $"ip_DL_6000_{suffix}", device.Ip },
+                { $"port_DL_6000_{suffix}", device.Port },
+                { $"unitId1_DL_6000_{suffix}", device.UnitId1 },
+                { $"unitId2_DL_6000_{suffix}", device.UnitId2 },
+                { $"StartIndexDL1_DL_6000_{suffix}", device.StartIndexDL1 },
+                { $"StartIndexDL2_DL_6000_{suffix}", device.StartIndexDL2 },
+                { $"cycle_DL_6000_{suffix}", device.Cycle },
+                { $"timeOutSend_DL_6000_{suffix}", device.TimeoutSend },
+                { $"timeOutReceive_DL_6000_{suffix}", device.TimeoutReceive }
             };
 
-            // Descobre os sufixos únicos (ex: 1, 2, 3)
-            var suffixes = appSettings
-                .Select(x => x.Attribute("key")?.Value)
-                .Where(k => k != null && k.Contains("_DL_6000_"))
-                .Select(k => k!.Split("_DL_6000_").Last())
-                .Distinct();
+            var appSettings = _xml.Root?.Element("appSettings");
+            if (appSettings == null) return;
 
-            foreach (var suffix in suffixes)
+            foreach (var kvp in settings)
             {
-                string deviceName = "DL6000_" + suffix;
+                // Remove se já existir
+                var existing = appSettings.Elements("add")
+                    .FirstOrDefault(e => e.Attribute("key")?.Value == kvp.Key);
+                if (existing != null)
+                    existing.Remove();
 
-                // Pega todas as chaves desse equipamento
-                var keysForDevice = appSettings
-                    .Where(e => e.Attribute("key")?.Value?.EndsWith($"_DL_6000_{suffix}") == true)
-                    .ToList();
-
-                foreach (var entry in keysForDevice)
-                {
-                    var fullKey = entry.Attribute("key")?.Value ?? "";
-                    var value = entry.Attribute("value")?.Value ?? "";
-
-                    if (string.IsNullOrEmpty(fullKey) || !fullKey.StartsWith("StartIndex")) continue;
-
-                    // Pega o tipo da variável, ex: DL1, DL2, Pressao...
-                    string rawType = fullKey.Replace("StartIndex", "").Split("_DL_6000_")[0];
-                    string name = aliases.ContainsKey(rawType) ? aliases[rawType] : rawType;
-
-                    if (int.TryParse(value, out int offset))
-                    {
-                        result.Add(new ModbusVariable
-                        {
-                            DeviceName = deviceName,
-                            Name = name,
-                            FunctionCode = "19", // fixo por enquanto
-                            Offset = offset,
-                            Address = $"4{(offset + 1).ToString("D4")}",
-                            Value = MosbusSlaveTcpWrapper.GetValue(offset)
-                        });
-                    }
-                }
+                appSettings.Add(new XElement("add",
+                    new XAttribute("key", kvp.Key),
+                    new XAttribute("value", kvp.Value)));
             }
 
-            return result;
-        }     
+            _xml.Save(_path);
+        }
+        
+         public void AddStartIndexEntry(ModbusVariable variable)
+        {
+            var suffix = variable.DeviceName.Replace("DL6000_", "");
+            var tipo = DetermineDLSection(variable.Offset);
 
+            if (tipo == null) return;
+
+            string key = $"StartIndex{tipo}_DL_6000_{suffix}";
+            var appSettings = _xml.Root?.Element("appSettings");
+            if (appSettings == null) return;
+
+            var existing = appSettings.Elements("add")
+                .FirstOrDefault(e => e.Attribute("key")?.Value == key);
+
+            if (existing != null)
+                existing.SetAttributeValue("value", variable.Offset.ToString());
+            else
+                appSettings.Add(new XElement("add",
+                    new XAttribute("key", key),
+                    new XAttribute("value", variable.Offset.ToString())));
+
+            _xml.Save(_path);
+        }
+
+        public void RemoveStartIndexEntry(ModbusVariable variable)
+        {
+            var suffix = variable.DeviceName.Replace("DL6000_", "");
+            var tipo = DetermineDLSection(variable.Offset);
+
+            if (tipo == null) return;
+
+            var appSettings = _xml.Root?.Element("appSettings");
+            if (appSettings == null) return;
+
+            // Remove StartIndex
+            string startIndexKey = $"StartIndex{tipo}_DL_6000_{suffix}";
+            var startIndex = appSettings.Elements("add")
+                .FirstOrDefault(e => e.Attribute("key")?.Value == startIndexKey);
+            startIndex?.Remove();
+            
+
+            // Remove VAR entry
+            string varKey = $"VAR_{suffix}_{variable.Offset}";
+            var varEntry = appSettings.Elements("add")
+                .FirstOrDefault(e => e.Attribute("key")?.Value == varKey);
+            varEntry?.Remove();            
+            
+            _xml.Save(_path);
+            
+        }
+
+        private string? DetermineDLSection(int offset)
+        {
+            if (offset >= 0 && offset < 32) return "DL1";
+            if (offset >= 32) return "DL2";
+            return null;
+        }
     }
-
-
 }

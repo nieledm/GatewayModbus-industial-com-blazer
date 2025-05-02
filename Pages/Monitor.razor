@@ -1,24 +1,22 @@
 @page "/monitor"
 @using DL6000WebConfig.Models
-@implements IDisposable
+@inject HttpClient Http
 @inject DL6000WebConfig.Services.ConfigService ConfigService
-
-@* @inject IHttpClientFactory ClientFactory *@
+@inject IHttpClientFactory ClientFactory
 
 <h3>Monitoramento em Tempo Real</h3>
 
-@if (variables.Count == 0)
+@if (variables == null || variables.Count == 0)
 {
     <p>Carregando variáveis...</p>
 }
 else
 {
-    <table class="table">
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>Dispositivo</th>
                 <th>Nome</th>
-                <th>Função</th>
                 <th>Offset</th>
                 <th>Endereço</th>
                 <th>Valor Atual</th>
@@ -30,88 +28,288 @@ else
             {
                 <tr>
                     <td>@variable.DeviceName</td>
-                    <td><input class="form-control" @bind="variable.Name" /></td>
-                    <td><input class="form-control" @bind="variable.FunctionCode" /></td>
-                    <td><input class="form-control" @bind="variable.Offset" @oninput="e => UpdateAddress(variable)" /></td>
+                    <td>@variable.Name</td>
+                    <td>@variable.Offset</td>
                     <td>@variable.Address</td>
                     <td>@variable.Value</td>
                     <td>
-                        <button class="btn btn-danger btn-sm" @onclick="() => RemoveVariable(variable)">Remover</button>
+                        <button class="btn btn-primary btn-sm" @onclick="() => OpenEditModal(variable)">Editar</button>
+                        <form onsubmit="return confirm('Tem certeza que deseja remover essa memória?');">
+                            <button class="btn btn-danger btn-sm" @onclick="() => RemoveVariable(variable)">Remover</button>
+                        </form>
                     </td>
                 </tr>
             }
         </tbody>
     </table>
-
-    <button class="btn btn-success" @onclick="AddVariable">Adicionar Nova Variável</button>
 }
 
+<!-- Modal de Edição -->
+@if (showEditModal && editVariable != null)
+{
+    <div class="modal" style="display:block; background-color: rgba(0,0,0,0.5);">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Editar Variável</h5>
+                    <button type="button" class="btn-close" @onclick="CloseEditModal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label">Nome</label>
+                        <input class="form-control" @bind="editVariable.Name" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Offset</label>
+                        <input class="form-control" type="number" @bind="editVariable.Offset" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Dispositivo</label>
+                        <select class="form-control" @bind="editVariable.DeviceName">
+                            @foreach (var d in deviceNames)
+                            {
+                                <option value="@d">@d</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" @onclick="CloseEditModal">Cancelar</button>
+                    <form onsubmit="return confirm('Tem certeza que deseja salvar as modificações?');">
+                        <button class="btn btn-primary" @onclick="SaveVariable">Salvar</button>
+                    </form>>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<hr />
 <h5>Adicionar Nova Variável</h5>
-<div class="row">
+<div class="row g-2">
     <div class="col-md-3">
         <input class="form-control" placeholder="Nome" @bind="newVar.Name" />
     </div>
     <div class="col-md-2">
-        <input class="form-control" placeholder="Função" @bind="newVar.FunctionCode" />
-    </div>
-    <div class="col-md-2">
         <input class="form-control" placeholder="Offset" type="number" @bind="newVar.Offset" />
     </div>
+    <div class="col-md-3">
+        <select class="form-control" @bind="newVar.DeviceName">
+            <option value="">-- Dispositivo --</option>
+            @foreach (var d in deviceNames)
+            {
+                <option value="@d">@d</option>
+            }
+        </select>
+    </div>
     <div class="col-md-2">
-        <button class="btn btn-success" @onclick="AddVariable">Adicionar</button>
+        <button class="btn btn-success w-100" @onclick="AddVariable">Adicionar</button>
     </div>
 </div>
 
 @code {
+    private bool shouldUpdate = true;
     private List<ModbusVariable> variables = new();
     private ModbusVariable newVar = new();
+    private List<string> deviceNames = new();
     private System.Threading.Timer? timer;
-    //private HttpClient? httpClient;
     private HttpClient? client;
+    private bool isModalOpen = false;
+    
+    // Variáveis para controle do modal
+    private bool showEditModal = false;
+    private ModbusVariable? editVariable = null;
+    private ModbusVariable? originalVariable = null;
+    private CancellationTokenSource? timerCancellationToken;
 
-    protected override void OnInitialized()
+    private void StartTimer()
     {
-        LoadVariables();
-
-        timer = new Timer(_ =>
+        timer = new Timer(async _ => 
         {
-            LoadVariables();
-            InvokeAsync(StateHasChanged);
+            if (shouldUpdate) // Só atualiza quando permitido
+            {
+                await InvokeAsync(async () =>
+                {
+                    await LoadVariables();
+                    StateHasChanged();
+                });
+            }
         }, null, 0, 3000);
     }
 
+    protected override async Task OnInitializedAsync()
+    {
+        try 
+        {
+            client = ClientFactory.CreateClient("api");
+            await LoadVariables();
+
+            var devices = ConfigService.GetDevices();
+            if (devices != null)
+            {
+                deviceNames = devices.Select(d => d.Name).ToList();
+            }
+
+            StartTimer();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Erro na inicialização: {ex}");
+        }        
+    }
+
+    @* private void StartTimer()
+    {
+        timerCancellationToken = new CancellationTokenSource();
+        _ = Task.Run(async () =>
+        {
+            while (!timerCancellationToken.IsCancellationRequested)
+            {
+                if (!isModalOpen)
+                {
+                    await InvokeAsync(async () =>
+                    {
+                        await LoadVariables();
+                        StateHasChanged();
+                    });
+                }
+                await Task.Delay(3000, timerCancellationToken.Token);
+            }
+        }, timerCancellationToken.Token);
+    } *@
+
     private async Task LoadVariables()
     {
-        variables = ConfigService.GetConfiguredVariables();
+        if (client == null) return;
+
+        try
+        {
+            var data = await client.GetFromJsonAsync<List<ModbusVariable>>("/api/modbus/variables");
+            if (data != null)
+            {
+                variables = data;
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Erro ao carregar variáveis: {ex}");
+        }
     }
+
+    private void OpenEditModal(ModbusVariable variable)
+    {
+         shouldUpdate = false;
+        if (variable == null) return;
+        
+        isModalOpen = true;
+        
+        // Faz uma cópia da variável para edição
+        originalVariable = new ModbusVariable
+        {
+            Name = variable.Name,
+            Offset = variable.Offset,
+            DeviceName = variable.DeviceName,
+            Address = variable.Address,
+            Value = variable.Value
+        };
+        
+         editVariable = new ModbusVariable
+        {
+            Name = variable.Name,
+            Offset = variable.Offset,
+            DeviceName = variable.DeviceName,
+            Address = variable.Address,
+            Value = variable.Value
+        };
+        
+        showEditModal = true;
+        StateHasChanged();
+    }
+
+    private void CloseEditModal()
+    {
+        isModalOpen = false;
+        showEditModal = false;
+        editVariable = null;
+        originalVariable = null;
+        StateHasChanged();
+        shouldUpdate = true;
+    }
+
+    private async Task SaveVariable()
+    {
+        if (editVariable == null || originalVariable == null) return;
+
+        try
+        {
+            var payload = new
+            {
+                original = originalVariable,
+                updated = editVariable
+            };
+
+            var response = await Http.PutAsJsonAsync("/api/modbus/variables", payload);
+            if (response.IsSuccessStatusCode)
+            {
+                await LoadVariables();
+                CloseEditModal();
+            }
+            else
+            {
+                Console.WriteLine($"Erro ao salvar: {response.StatusCode}");
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Erro ao salvar variável: {ex}");
+        }
+    }
+
+
     private async Task AddVariable()
     {
-        if (string.IsNullOrWhiteSpace(newVar.Name) || newVar.Offset < 0) return;
-
-        newVar.Address = $"4000{newVar.Offset + 1}";
-        newVar.Value = MosbusSlaveTcpWrapper.GetValue(newVar.Offset);
-
-        if (client != null)
+        try
         {
-            await client.PostAsJsonAsync("/api/modbus/variables", newVar);
+            if (string.IsNullOrWhiteSpace(newVar.Name) || newVar.Offset < 0 || string.IsNullOrWhiteSpace(newVar.DeviceName))
+                return;
+            
+            newVar.Address = $"40{(newVar.Offset + 1).ToString("D3")}";
+
+            var response = await Http.PostAsJsonAsync("/api/modbus/variables", newVar);
+            if (response.IsSuccessStatusCode)
+            {
+                newVar = new();
+                await LoadVariables();
+            }
         }
-
-        newVar = new(); // limpa formulário
-        await LoadVariables(); // recarrega a lista da API
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Erro ao adicionar variável: {ex}");
+        }
     }
 
-    private void RemoveVariable(ModbusVariable variable)
+    private async Task RemoveVariable(ModbusVariable variable)
     {
-        variables.Remove(variable);
-    }
-
-    private void UpdateAddress(ModbusVariable v)
-    {
-        v.Address = $"40{(v.Offset + 1).ToString("D3")}";
+        if (variable == null) return;
+        
+        try {            
+            var response = await Http.DeleteAsync($"/api/modbus/variables/{variable.DeviceName}/{variable.Offset}");
+            if (response.IsSuccessStatusCode)
+            {
+                await LoadVariables();
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Erro ao remover variável: {ex}");
+        }
     }
 
     public void Dispose()
     {
-        timer?.Dispose();
+        timerCancellationToken?.Cancel();
+        timerCancellationToken?.Dispose();
+        client?.Dispose();
+        GC.SuppressFinalize(this);
     }
 }
