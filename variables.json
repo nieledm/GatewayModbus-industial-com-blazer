@@ -22,16 +22,9 @@
   },
   {
     "DeviceName": "DL6000_2",
-    "Name": "Vaz\u00E3o",
+    "Name": "Temperatura",
     "Offset": 0,
-    "Address": "40063",
-    "Value": 0
-  },
-  {
-    "DeviceName": "DL6000_2",
-    "Name": "Niele_mudando",
-    "Offset": 45,
-    "Address": "40046",
+    "Address": "40001",
     "Value": 0
   }
 ]

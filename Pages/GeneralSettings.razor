@@ -1,0 +1,240 @@
+@page "/config-geral"
+@inject DL6000WebConfig.Services.ConfigService ConfigService
+@inject IJSRuntime JSRuntime
+@using DL6000WebConfig.Models
+
+<style>
+    .config-container {
+        max-width: 900px;
+        margin: 20px auto;
+        padding: 20px;
+        background: #f8f9fa;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .config-title {
+        color: #2c3e50;
+        margin-bottom: 25px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .config-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+
+    .config-section {
+        background: white;
+        padding: 15px;
+        border-radius: 6px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .section-title {
+        color: #3498db;
+        margin-bottom: 15px;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 500;
+        color: #495057;
+        font-size: 0.9rem;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 8px 12px;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+        font-size: 0.9rem;
+    }
+
+    .ip-address-group {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .ip-part {
+        flex: 1;
+    }
+
+    .ip-separator {
+        font-size: 1.2rem;
+        color: #6c757d;
+        padding-top: 15px;
+    }
+
+    .btn-save {
+        background-color: #28a745;
+        color: white;
+        padding: 8px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .loading-container {
+        text-align: center;
+        padding: 30px 0;
+        color: #6c757d;
+    }
+</style>
+
+<div class="config-container">
+    <h3 class="config-title">
+        <span style="display:inline-block;width:24px;text-align:center;">⚙️</span>
+        Configuração Geral
+    </h3>
+
+    @if (settings != null)
+    {
+        <EditForm Model="settings" OnValidSubmit="HandleSave">
+            <div class="config-grid">
+                <!-- Seção MODBUS -->
+                <div class="config-section">
+                    <h5 class="section-title">
+                        <span style="display:inline-block;width:20px;text-align:center;">📶</span>
+                        Conexão MODBUS
+                    </h5>
+                    <div class="form-group">
+                        <label>Slave ID</label>
+                        <InputText class="form-control" @bind-Value="settings.SlaveID" />
+                    </div>
+                    <div class="form-group">
+                        <label>Porta</label>
+                        <InputText class="form-control" @bind-Value="settings.SlavePort" />
+                    </div>
+                </div>
+
+                <!-- Seção IP -->
+                <div class="config-section">
+                    <h5 class="section-title">
+                        <span style="display:inline-block;width:20px;text-align:center;">🌐</span>
+                        Endereço IP
+                    </h5>
+                    <div class="ip-address-group">
+                        <div class="form-group ip-part">
+                            <label>Byte 1</label>
+                            <InputText class="form-control" @bind-Value="settings.SlaveIp1" />
+                        </div>
+                        <span class="ip-separator">.</span>
+                        <div class="form-group ip-part">
+                            <label>Byte 2</label>
+                            <InputText class="form-control" @bind-Value="settings.SlaveIp2" />
+                        </div>
+                        <span class="ip-separator">.</span>
+                        <div class="form-group ip-part">
+                            <label>Byte 3</label>
+                            <InputText class="form-control" @bind-Value="settings.SlaveIp3" />
+                        </div>
+                        <span class="ip-separator">.</span>
+                        <div class="form-group ip-part">
+                            <label>Byte 4</label>
+                            <InputText class="form-control" @bind-Value="settings.SlaveIp4" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Seção Dispositivos -->
+                <div class="config-section">
+                    <h5 class="section-title">
+                        <span style="display:inline-block;width:20px;text-align:center;">💻</span>
+                        Dispositivos
+                    </h5>
+                    <div class="form-group">
+                        <label>Total de Dispositivos</label>
+                        <InputText class="form-control" 
+                                @bind-Value="deviceCountInput" 
+                                @oninput="HandleDeviceCountInput" />
+                        <ValidationMessage For="@(() => settings.DeviceCount)" />
+                        
+                        @if (!string.IsNullOrEmpty(numberError))
+                        {
+                            <div class="validation-message">@numberError</div>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: right; margin-top: 25px;">
+                <button type="submit" class="btn-save">
+                    <span style="display:inline-block;width:20px;text-align:center;">💾</span>
+                    Salvar Configurações
+                </button>
+            </div>
+        </EditForm>
+    }
+    else
+    {
+        <div class="loading-container">
+            <div style="font-size:24px;margin-bottom:10px;">⏳</div>
+            <p>Carregando configurações...</p>
+        </div>
+    }
+</div>
+
+@code {
+    private GeneralSettingsModel? settings;
+    private string deviceCountInput = "";
+    private string? numberError;
+
+    protected override void OnInitialized()
+    {
+        settings = ConfigService.GetGeneralSettings();
+        deviceCountInput = settings?.DeviceCount ?? "";
+    }
+
+    private void HandleDeviceCountInput(ChangeEventArgs e)
+    {
+        deviceCountInput = e.Value?.ToString() ?? "";
+        
+        // Valida se é número
+        if (int.TryParse(deviceCountInput, out int result))
+        {
+            settings!.DeviceCount = deviceCountInput;
+            numberError = null;
+        }
+        else
+        {
+            numberError = "Por favor, insira apenas números";
+        }
+    }
+
+    private async Task HandleSave()
+    {
+        if (!string.IsNullOrEmpty(numberError))
+        {
+            await JSRuntime.InvokeVoidAsync("alert", "Corrija os erros antes de salvar");
+            return;
+        }
+
+        var confirmed = await JSRuntime.InvokeAsync<bool>("confirm", 
+            "ATENÇÃO: Tem certeza que deseja salvar as alterações?");
+        
+        if (confirmed)
+        {
+            ConfigService.SaveGeneralSettings(settings!);
+        }
+    }
+}

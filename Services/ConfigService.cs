@@ -14,6 +14,7 @@ namespace DL6000WebConfig.Services
             _xml = XDocument.Load(_path);
         }
 
+        #region CRUD DE DISPOSITIVOS
         public List<DeviceConfigModel> GetDevices()
         {
             var appSettings = _xml.Root?
@@ -96,8 +97,10 @@ namespace DL6000WebConfig.Services
 
             _xml.Save(_path);
         }
+        #endregion
         
-         public void AddStartIndexEntry(ModbusVariable variable)
+        #region CRUD DAS MEMÓRIAS
+        public void AddStartIndexEntry(ModbusVariable variable)
         {
             var suffix = variable.DeviceName.Replace("DL6000_", "");
             var tipo = DetermineDLSection(variable.Offset);
@@ -147,6 +150,7 @@ namespace DL6000WebConfig.Services
             _xml.Save(_path);
             
         }
+        #endregion        
 
         private string? DetermineDLSection(int offset)
         {
@@ -154,5 +158,54 @@ namespace DL6000WebConfig.Services
             if (offset >= 32) return "DL2";
             return null;
         }
+
+        #region CONFIGURAÇÃO GERAL
+        public GeneralSettingsModel GetGeneralSettings()
+        {
+            var get = (string key) =>
+                _xml.Root?.Element("appSettings")?.Elements("add")
+                    .FirstOrDefault(e => e.Attribute("key")?.Value == key)?
+                    .Attribute("value")?.Value ?? "";
+
+            return new GeneralSettingsModel
+            {
+                SlaveID = get("slave_ID"),
+                SlaveIp1 = get("slave_Ip_byte_1"),
+                SlaveIp2 = get("slave_Ip_byte_2"),
+                SlaveIp3 = get("slave_Ip_byte_3"),
+                SlaveIp4 = get("slave_Ip_byte_4"),
+                SlavePort = get("slave_port"),
+                DeviceCount = get("deviceCount")
+            };
+        }
+
+        public void SaveGeneralSettings(GeneralSettingsModel settings)
+        {
+            var appSettings = _xml.Root?.Element("appSettings");
+            if (appSettings == null) return;
+
+            void Set(string key, string value)
+            {
+                var el = appSettings.Elements("add")
+                    .FirstOrDefault(e => e.Attribute("key")?.Value == key);
+
+                if (el != null)
+                    el.SetAttributeValue("value", value);
+                else
+                    appSettings.Add(new XElement("add", new XAttribute("key", key), new XAttribute("value", value)));
+            }
+
+            Set("slave_ID", settings.SlaveID);
+            Set("slave_Ip_byte_1", settings.SlaveIp1);
+            Set("slave_Ip_byte_2", settings.SlaveIp2);
+            Set("slave_Ip_byte_3", settings.SlaveIp3);
+            Set("slave_Ip_byte_4", settings.SlaveIp4);
+            Set("slave_port", settings.SlavePort);
+            Set("deviceCount", settings.DeviceCount);
+
+            _xml.Save(_path);
+        }
+        #endregion
+
     }
 }

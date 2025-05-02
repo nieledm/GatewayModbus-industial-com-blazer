@@ -5,7 +5,6 @@ using DL6000WebConfig.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 builder.Services.AddSingleton<ModbusVariableService>(sp =>
 {
     var configService = sp.GetRequiredService<ConfigService>();

@@ -1,0 +1,43 @@
+@* @page "/config-geral"
+@inject DL6000WebConfig.Services.ConfigService ConfigService
+@using DL6000WebConfig.Models
+
+<h3>Configuração Geral</h3>
+
+@if (settings != null)
+{
+    <EditForm Model="settings" OnValidSubmit="Save">
+        <div class="row">
+            <div class="col-md-2"><label>Slave ID</label> <InputText class="form-control" @bind-Value="settings.SlaveID" /></div>
+            <div class="col-md-2"><label>IP BYTE 1</label> <InputText class="form-control" @bind-Value="settings.SlaveIp1" /></div>
+            <div class="col-md-2"><label>IP BYTE 2</label> <InputText class="form-control" @bind-Value="settings.SlaveIp2" /></div>
+            <div class="col-md-2"><label>IP BYTE 3</label> <InputText class="form-control" @bind-Value="settings.SlaveIp3" /></div>
+            <div class="col-md-2"><label>IP BYTE 4</label> <InputText class="form-control" @bind-Value="settings.SlaveIp4" /></div>
+            <div class="col-md-2"><label>Porta</label> <InputText class="form-control" @bind-Value="settings.SlavePort" /></div>
+            <div class="col-md-2"><label>Total de Dispositivos</label> <InputText class="form-control" @bind-Value="settings.DeviceCount" /></div>
+        </div>
+        <form onsubmit="return confirm('Cuidado,tem certeza que deseja salvar as alterações');">       
+            <div class="mt-3">
+                <button type="submit" class="btn btn-primary">Salvar</button>
+            </div>
+        </form>
+    </EditForm>
+}
+else
+{
+    <p>Carregando...</p>
+}
+
+@code {
+    private GeneralSettingsModel? settings;
+
+    protected override void OnInitialized()
+    {
+        settings = ConfigService.GetGeneralSettings();
+    }
+
+    private void Save()
+    {
+        ConfigService.SaveGeneralSettings(settings!);
+    }
+} *@
