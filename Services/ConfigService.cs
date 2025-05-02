@@ -97,6 +97,67 @@ namespace DL6000WebConfig.Services
 
             _xml.Save(_path);
         }
+
+        public void UpdateDevice(DeviceConfigModel updated)
+        {
+            var suffix = updated.Name.Replace("DL6000_", "");
+            var keys = new Dictionary<string, string>
+            {
+                [$"ip_DL_6000_{suffix}"] = updated.Ip,
+                [$"port_DL_6000_{suffix}"] = updated.Port,
+                [$"unitId1_DL_6000_{suffix}"] = updated.UnitId1,
+                [$"unitId2_DL_6000_{suffix}"] = updated.UnitId2,
+                [$"StartIndexDL1_DL_6000_{suffix}"] = updated.StartIndexDL1,
+                [$"StartIndexDL2_DL_6000_{suffix}"] = updated.StartIndexDL2,
+                [$"cycle_DL_6000_{suffix}"] = updated.Cycle,
+                [$"timeOutSend_DL_6000_{suffix}"] = updated.TimeoutSend,
+                [$"timeOutReceive_DL_6000_{suffix}"] = updated.TimeoutReceive
+            };
+
+            var appSettings = _xml.Root?.Element("appSettings");
+            if (appSettings == null) return;
+
+            foreach (var key in keys.Keys)
+            {
+                var element = appSettings.Elements("add")
+                    .FirstOrDefault(e => e.Attribute("key")?.Value == key);
+
+                if (element != null)
+                {
+                    element.SetAttributeValue("value", keys[key]);
+                }
+                else
+                {
+                    appSettings.Add(new XElement("add",
+                        new XAttribute("key", key),
+                        new XAttribute("value", keys[key])));
+                }
+            }
+
+            _xml.Save(_path);
+        }
+
+        public void DeleteDevice(string deviceName)
+        {
+            string suffix = deviceName.Replace("DL6000_", "");
+
+            var keysToRemove = _xml.Root?
+                .Element("appSettings")?
+                .Elements("add")
+                .Where(e =>
+                {
+                    var key = e.Attribute("key")?.Value ?? "";
+                    return key.EndsWith($"_DL_6000_{suffix}") || key.Contains($"VAR_{suffix}_");
+                })
+                .ToList();
+
+            if (keysToRemove != null)
+            {
+                foreach (var el in keysToRemove)
+                    el.Remove();
+                _xml.Save(_path);
+            }
+        }
         #endregion
         
         #region CRUD DAS MEMÓRIAS

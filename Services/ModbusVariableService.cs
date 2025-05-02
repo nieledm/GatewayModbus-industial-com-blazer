@@ -54,5 +54,11 @@ namespace DL6000WebConfig.Services
                 _configService.RemoveStartIndexEntry(toRemove);
             }
         }
+        public void DeleteAllVariablesForDevice(string deviceName)
+        {
+            var list = GetAll();
+            list.RemoveAll(v => v.DeviceName == deviceName);
+            Save(list);
+        }
     }
 }

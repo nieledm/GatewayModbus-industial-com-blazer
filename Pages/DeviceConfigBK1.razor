@@ -1,0 +1,232 @@
+@* @page "/config"
+@using System.Text.Json
+@inject IJSRuntime JS
+@using Microsoft.AspNetCore.Components.Forms
+@using DL6000WebConfig.Models
+@using DL6000WebConfig.Services
+@inject ConfigService ConfigService
+@inject ModbusVariableService variableService
+
+@if (devices.Count > 0)
+{
+    <h3>Equipamentos cadastrados:</h3>
+    <ul class="list-group">
+        @foreach (var d in devices.Select((value, index) => new { value, index }))
+        {
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                @d.value.Name - @d.value.Ip:@d.value.Port
+                <button class="btn btn-sm btn-outline-primary" @onclick="() => EditarEquipamento(d.index)">Editar</button>
+                <button class="btn btn-sm btn-outline-danger ms-2" @onclick="() => ExcluirEquipamento(d.index)">Excluir</button>
+            </li>
+        }
+    </ul>
+    <p></p>
+    <p></p>
+}
+
+<h3>Configuração de Equipamentos DL6000</h3>
+
+<div class="mb-3">
+    <label>Nome:</label>
+    <div class="input-group">
+        <span class="input-group-text">DL6000_</span>
+        <input @bind="form.Name" class="form-control" />
+    </div>
+</div>
+<div class="mb-3">
+    <label>IP:</label>
+    <input @bind="form.Ip" class="form-control" />
+</div>
+<div class="mb-3">
+    <label>Porta:</label>
+    <input @bind="form.Port" class="form-control" />
+</div>
+<div class="mb-3">
+    <label>Unit ID 1:</label>
+    <input @bind="form.UnitId1" class="form-control" />
+</div>
+<div class="mb-3">
+    <label>Unit ID 2:</label>
+    <input @bind="form.UnitId2" class="form-control" />
+</div>
+<div class="mb-3">
+    <label>Start Index DL1:</label>
+    <input @bind="form.StartIndexDL1" class="form-control" />
+</div>
+<div class="mb-3">
+    <label>Start Index DL2:</label>
+    <input @bind="form.StartIndexDL2" class="form-control" />
+</div>
+<div class="mb-3">
+    <label>Ciclo (ms):</label>
+    <input @bind="form.Cycle" class="form-control" />
+</div>
+<div class="mb-3">
+    <label>Timeout Envio:</label>
+    <input @bind="form.TimeoutSend" class="form-control" />
+</div>
+<div class="mb-3">
+    <label>Timeout Recebimento:</label>
+    <input @bind="form.TimeoutReceive" class="form-control" />
+</div>
+
+@if (!modoEdicao)
+@if (!string.IsNullOrEmpty(mensagemErro))
+{
+<div class="alert alert-danger">@mensagemErro</div>
+}
+{
+    <button @onclick="AddDevice" class="btn btn-primary me-2">Adicionar Equipamento</button>
+}
+else
+{
+    <button @onclick="SalvarAlteracoes" class="btn btn-success me-2">Salvar Alterações</button>
+    <button @onclick="CancelarEdicao" class="btn btn-secondary">Cancelar</button>
+}
+
+<button @onclick="ExportJson" class="btn btn-secondary ms-2">Exportar Configuração</button>
+<input type="file" @onchange="ImportJson" class="form-control mt-2" />
+
+<hr />
+
+@code {
+    private string? mensagemErro;
+    private DeviceConfigModel form = new();
+    private List<DeviceConfigModel> devices = new();
+    private bool modoEdicao = false;
+    private int indiceEdicao = -1;
+
+    protected override void OnInitialized()
+    {
+        devices = ConfigService.GetDevices();
+    }
+
+    private void AddDevice()
+    {
+        if (string.IsNullOrWhiteSpace(form.Name) || !int.TryParse(form.Name, out int numberOnly))
+    {
+        mensagemErro = "O nome deve conter apenas números inteiros.";
+        return;
+    }
+
+    form.Name = $"DL6000_{numberOnly}";
+
+    if (devices.Any(d => d.Name == form.Name))
+    {
+        mensagemErro = "Já existe um dispositivo com esse nome.";
+        return;
+    }
+
+        ConfigService.AddDevice(new DeviceConfigModel
+        {
+            Name = form.Name,
+            Ip = form.Ip,
+            Port = form.Port,
+            UnitId1 = form.UnitId1,
+            UnitId2 = form.UnitId2,
+            StartIndexDL1 = form.StartIndexDL1,
+            StartIndexDL2 = form.StartIndexDL2,
+            Cycle = form.Cycle,
+            TimeoutSend = form.TimeoutSend,
+            TimeoutReceive = form.TimeoutReceive
+        });
+
+        devices = ConfigService.GetDevices(); // Atualiza lista com persistência
+        form = new();
+    }
+
+    private void EditarEquipamento(int index)
+    {
+        var item = devices[index];
+        form = new DeviceConfigModel
+        {
+            Name = item.Name,
+            Ip = item.Ip,
+            Port = item.Port,
+            UnitId1 = item.UnitId1,
+            UnitId2 = item.UnitId2,
+            StartIndexDL1 = item.StartIndexDL1,
+            StartIndexDL2 = item.StartIndexDL2,
+            Cycle = item.Cycle,
+            TimeoutSend = item.TimeoutSend,
+            TimeoutReceive = item.TimeoutReceive
+        };
+        modoEdicao = true;
+        indiceEdicao = index;
+    }
+
+    private void SalvarAlteracoes()
+    {
+        if (indiceEdicao < 0 || indiceEdicao >= devices.Count) return;
+
+        var antigoNome = devices[indiceEdicao].Name;
+        var novoNome = form.Name;
+
+        if (string.IsNullOrWhiteSpace(novoNome) || novoNome == antigoNome)
+        {
+            // Apenas atualiza os valores se o nome não foi alterado
+            ConfigService.UpdateDevice(form);
+        }
+        else
+        {
+            // 1. Remove antigo
+            ConfigService.DeleteDevice(antigoNome);
+            variableService.DeleteAllVariablesForDevice(antigoNome);
+
+            // 2. Adiciona com novo nome
+            ConfigService.AddDevice(form);
+
+            // 3. Atualiza variáveis ligadas ao antigo para usarem o novo nome
+            var variaveis = variableService.GetAll();
+            var ligadas = variaveis.Where(v => v.DeviceName == antigoNome).ToList();
+            foreach (var v in ligadas)
+            {
+                v.DeviceName = novoNome;
+                variableService.Add(v);
+                ConfigService.AddStartIndexEntry(v);
+            }
+            variableService.Save(variaveis);
+        }
+
+        devices[indiceEdicao] = form;
+        modoEdicao = false;
+        indiceEdicao = -1;
+        form = new();
+    }
+
+
+    private void CancelarEdicao()
+    {
+        modoEdicao = false;
+        indiceEdicao = -1;
+        form = new();
+    }
+
+    private async Task ExportJson()
+    {
+        var json = JsonSerializer.Serialize(devices, new JsonSerializerOptions { WriteIndented = true });
+        await JS.InvokeVoidAsync("downloadFile", "config-dl6000.json", "application/json", json);
+    }
+
+    private async Task ImportJson(ChangeEventArgs e)
+    {
+        var file = ((IBrowserFile)e.Value);
+        var buffer = new byte[file.Size];
+        await file.OpenReadStream().ReadAsync(buffer);
+        var json = System.Text.Encoding.UTF8.GetString(buffer);
+        var importedDevices = JsonSerializer.Deserialize<List<DeviceConfigModel>>(json);
+
+        if (importedDevices != null)
+        {
+            devices = importedDevices;
+        }
+    }
+    private void ExcluirEquipamento(int index)
+    {
+        var device = devices[index];
+        ConfigService.DeleteDevice(device.Name);
+        variableService.DeleteAllVariablesForDevice(device.Name);
+        devices.RemoveAt(index);
+    }
+
+} *@
