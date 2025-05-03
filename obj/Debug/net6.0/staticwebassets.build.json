@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "usN6JRMofEcqTzzerQTl1DZJiYVcBWhjNMt4NmTupPM=",
+  "Hash": "86MtljbqAT8NlYAYCpzF9/asVKsS71qvc1URynSJis8=",
   "Source": "DL6000WebConfig",
   "BasePath": "_content/DL6000WebConfig",
   "Mode": "Default",
@@ -59,6 +59,27 @@
       "OriginalItemSpec": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\DL6000WebConfig.bundle.scp.css"
     },
     {
+      "Identity": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\base.css",
+      "SourceId": "DL6000WebConfig",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\",
+      "BasePath": "_content/DL6000WebConfig",
+      "RelativePath": "css/base#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "odlpia6ami",
+      "Integrity": "fNIQwmKCIcUYTLc0HErV8KaHZCMI8al42VIVHvQd6lk=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\base.css"
+    },
+    {
       "Identity": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "SourceId": "DL6000WebConfig",
       "SourceType": "Discovered",
@@ -99,6 +120,90 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Identity": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\components\\buttons.css",
+      "SourceId": "DL6000WebConfig",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\",
+      "BasePath": "_content/DL6000WebConfig",
+      "RelativePath": "css/components/buttons#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "uak9vn9em0",
+      "Integrity": "Bhq7mxJ5Cmgb8TySu4auBvaq1WHa8q52tzJU6cHH3VA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\components\\buttons.css"
+    },
+    {
+      "Identity": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\components\\forms.css",
+      "SourceId": "DL6000WebConfig",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\",
+      "BasePath": "_content/DL6000WebConfig",
+      "RelativePath": "css/components/forms#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "mq97g6g9bn",
+      "Integrity": "8qoICr+7szS/ojDYhMcoNIFiSlDF13/zPA8qyDRK0BU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\components\\forms.css"
+    },
+    {
+      "Identity": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\components\\modals.css",
+      "SourceId": "DL6000WebConfig",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\",
+      "BasePath": "_content/DL6000WebConfig",
+      "RelativePath": "css/components/modals#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "u09mpgvuic",
+      "Integrity": "0r/E+fhCzna2G+jJ6rY6+KaN0FkXKnz6dLIcUDVYNng=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\components\\modals.css"
+    },
+    {
+      "Identity": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\components\\tables.css",
+      "SourceId": "DL6000WebConfig",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\",
+      "BasePath": "_content/DL6000WebConfig",
+      "RelativePath": "css/components/tables#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "sjx0ezk93z",
+      "Integrity": "2GO4qpKZONQT0yeP4bNtFPhAFPN4WVSXv5qj24ENYG0=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\components\\tables.css"
     },
     {
       "Identity": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
@@ -290,6 +395,69 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\README.md"
     },
     {
+      "Identity": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\pages\\config.css",
+      "SourceId": "DL6000WebConfig",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\",
+      "BasePath": "_content/DL6000WebConfig",
+      "RelativePath": "css/pages/config#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "9w8ug0iwk3",
+      "Integrity": "d0eZsCwsEj+Z8MGT5wB1MS9B5+by0AzDVeNvzUgk+kA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\pages\\config.css"
+    },
+    {
+      "Identity": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\pages\\general-settings.css",
+      "SourceId": "DL6000WebConfig",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\",
+      "BasePath": "_content/DL6000WebConfig",
+      "RelativePath": "css/pages/general-settings#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "2g7gxyihig",
+      "Integrity": "snKmcm4nlqRr7JWAZgj8IDRTq6Bj7/9k9angNiE1cRw=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\pages\\general-settings.css"
+    },
+    {
+      "Identity": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\pages\\monitor.css",
+      "SourceId": "DL6000WebConfig",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\",
+      "BasePath": "_content/DL6000WebConfig",
+      "RelativePath": "css/pages/monitor#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "79bkmk5u3f",
+      "Integrity": "++v8AN6B/tBJE38Eug3oM/1xPukSYlsrGk/8dmxUt2k=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\pages\\monitor.css"
+    },
+    {
       "Identity": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\site.css",
       "SourceId": "DL6000WebConfig",
       "SourceType": "Discovered",
@@ -304,8 +472,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "1fpfb6x0uo",
-      "Integrity": "bQF09ZZOsk0T2q2MpSrJMbqdu0Ks9Ea03LFI7wJyLeU=",
+      "Fingerprint": "unlofai17l",
+      "Integrity": "qrpkz9jlgl1MTavJEiLT0woZFSwfB5jt1LlYp9eVzzE=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
@@ -333,6 +501,88 @@
     }
   ],
   "Endpoints": [
+    {
+      "Route": "css/base.css",
+      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\base.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "856"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"fNIQwmKCIcUYTLc0HErV8KaHZCMI8al42VIVHvQd6lk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 03 May 2025 19:11:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-fNIQwmKCIcUYTLc0HErV8KaHZCMI8al42VIVHvQd6lk="
+        }
+      ]
+    },
+    {
+      "Route": "css/base.odlpia6ami.css",
+      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\base.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "856"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"fNIQwmKCIcUYTLc0HErV8KaHZCMI8al42VIVHvQd6lk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 03 May 2025 19:11:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "odlpia6ami"
+        },
+        {
+          "Name": "label",
+          "Value": "css/base.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-fNIQwmKCIcUYTLc0HErV8KaHZCMI8al42VIVHvQd6lk="
+        }
+      ]
+    },
     {
       "Route": "css/bootstrap/bootstrap.min.bpk8xqwxhs.css",
       "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
@@ -494,6 +744,334 @@
         {
           "Name": "integrity",
           "Value": "sha256-gBwg2tmA0Ci2u54gMF1jNCVku6vznarkLS6D76htNNQ="
+        }
+      ]
+    },
+    {
+      "Route": "css/components/buttons.css",
+      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\components\\buttons.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "900"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Bhq7mxJ5Cmgb8TySu4auBvaq1WHa8q52tzJU6cHH3VA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 03 May 2025 19:13:02 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Bhq7mxJ5Cmgb8TySu4auBvaq1WHa8q52tzJU6cHH3VA="
+        }
+      ]
+    },
+    {
+      "Route": "css/components/buttons.uak9vn9em0.css",
+      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\components\\buttons.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "900"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Bhq7mxJ5Cmgb8TySu4auBvaq1WHa8q52tzJU6cHH3VA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 03 May 2025 19:13:02 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "uak9vn9em0"
+        },
+        {
+          "Name": "label",
+          "Value": "css/components/buttons.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Bhq7mxJ5Cmgb8TySu4auBvaq1WHa8q52tzJU6cHH3VA="
+        }
+      ]
+    },
+    {
+      "Route": "css/components/forms.css",
+      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\components\\forms.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "807"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"8qoICr+7szS/ojDYhMcoNIFiSlDF13/zPA8qyDRK0BU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 03 May 2025 19:13:33 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-8qoICr+7szS/ojDYhMcoNIFiSlDF13/zPA8qyDRK0BU="
+        }
+      ]
+    },
+    {
+      "Route": "css/components/forms.mq97g6g9bn.css",
+      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\components\\forms.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "807"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"8qoICr+7szS/ojDYhMcoNIFiSlDF13/zPA8qyDRK0BU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 03 May 2025 19:13:33 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "mq97g6g9bn"
+        },
+        {
+          "Name": "label",
+          "Value": "css/components/forms.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-8qoICr+7szS/ojDYhMcoNIFiSlDF13/zPA8qyDRK0BU="
+        }
+      ]
+    },
+    {
+      "Route": "css/components/modals.css",
+      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\components\\modals.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1104"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"0r/E+fhCzna2G+jJ6rY6+KaN0FkXKnz6dLIcUDVYNng=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 03 May 2025 19:12:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-0r/E+fhCzna2G+jJ6rY6+KaN0FkXKnz6dLIcUDVYNng="
+        }
+      ]
+    },
+    {
+      "Route": "css/components/modals.u09mpgvuic.css",
+      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\components\\modals.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1104"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"0r/E+fhCzna2G+jJ6rY6+KaN0FkXKnz6dLIcUDVYNng=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 03 May 2025 19:12:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "u09mpgvuic"
+        },
+        {
+          "Name": "label",
+          "Value": "css/components/modals.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-0r/E+fhCzna2G+jJ6rY6+KaN0FkXKnz6dLIcUDVYNng="
+        }
+      ]
+    },
+    {
+      "Route": "css/components/tables.css",
+      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\components\\tables.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1252"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2GO4qpKZONQT0yeP4bNtFPhAFPN4WVSXv5qj24ENYG0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 03 May 2025 19:12:28 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-2GO4qpKZONQT0yeP4bNtFPhAFPN4WVSXv5qj24ENYG0="
+        }
+      ]
+    },
+    {
+      "Route": "css/components/tables.sjx0ezk93z.css",
+      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\components\\tables.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1252"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2GO4qpKZONQT0yeP4bNtFPhAFPN4WVSXv5qj24ENYG0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 03 May 2025 19:12:28 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "sjx0ezk93z"
+        },
+        {
+          "Name": "label",
+          "Value": "css/components/tables.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-2GO4qpKZONQT0yeP4bNtFPhAFPN4WVSXv5qj24ENYG0="
         }
       ]
     },
@@ -1236,8 +1814,8 @@
       ]
     },
     {
-      "Route": "css/site.1fpfb6x0uo.css",
-      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\site.css",
+      "Route": "css/pages/config.9w8ug0iwk3.css",
+      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\pages\\config.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1246,7 +1824,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2810"
+          "Value": "833"
         },
         {
           "Name": "Content-Type",
@@ -1254,11 +1832,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"bQF09ZZOsk0T2q2MpSrJMbqdu0Ks9Ea03LFI7wJyLeU=\""
+          "Value": "\"d0eZsCwsEj+Z8MGT5wB1MS9B5+by0AzDVeNvzUgk+kA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 10 Apr 2025 14:46:15 GMT"
+          "Value": "Sat, 03 May 2025 19:39:36 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1268,15 +1846,216 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "1fpfb6x0uo"
+          "Value": "9w8ug0iwk3"
         },
         {
           "Name": "label",
-          "Value": "css/site.css"
+          "Value": "css/pages/config.css"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-bQF09ZZOsk0T2q2MpSrJMbqdu0Ks9Ea03LFI7wJyLeU="
+          "Value": "sha256-d0eZsCwsEj+Z8MGT5wB1MS9B5+by0AzDVeNvzUgk+kA="
+        }
+      ]
+    },
+    {
+      "Route": "css/pages/config.css",
+      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\pages\\config.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "833"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"d0eZsCwsEj+Z8MGT5wB1MS9B5+by0AzDVeNvzUgk+kA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 03 May 2025 19:39:36 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-d0eZsCwsEj+Z8MGT5wB1MS9B5+by0AzDVeNvzUgk+kA="
+        }
+      ]
+    },
+    {
+      "Route": "css/pages/general-settings.2g7gxyihig.css",
+      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\pages\\general-settings.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2006"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"snKmcm4nlqRr7JWAZgj8IDRTq6Bj7/9k9angNiE1cRw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 03 May 2025 19:27:59 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "2g7gxyihig"
+        },
+        {
+          "Name": "label",
+          "Value": "css/pages/general-settings.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-snKmcm4nlqRr7JWAZgj8IDRTq6Bj7/9k9angNiE1cRw="
+        }
+      ]
+    },
+    {
+      "Route": "css/pages/general-settings.css",
+      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\pages\\general-settings.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2006"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"snKmcm4nlqRr7JWAZgj8IDRTq6Bj7/9k9angNiE1cRw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 03 May 2025 19:27:59 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-snKmcm4nlqRr7JWAZgj8IDRTq6Bj7/9k9angNiE1cRw="
+        }
+      ]
+    },
+    {
+      "Route": "css/pages/monitor.79bkmk5u3f.css",
+      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\pages\\monitor.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "825"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"++v8AN6B/tBJE38Eug3oM/1xPukSYlsrGk/8dmxUt2k=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 03 May 2025 19:13:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "79bkmk5u3f"
+        },
+        {
+          "Name": "label",
+          "Value": "css/pages/monitor.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-++v8AN6B/tBJE38Eug3oM/1xPukSYlsrGk/8dmxUt2k="
+        }
+      ]
+    },
+    {
+      "Route": "css/pages/monitor.css",
+      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\pages\\monitor.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "825"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"++v8AN6B/tBJE38Eug3oM/1xPukSYlsrGk/8dmxUt2k=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 03 May 2025 19:13:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-++v8AN6B/tBJE38Eug3oM/1xPukSYlsrGk/8dmxUt2k="
         }
       ]
     },
@@ -1291,7 +2070,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2810"
+          "Value": "8741"
         },
         {
           "Name": "Content-Type",
@@ -1299,11 +2078,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"bQF09ZZOsk0T2q2MpSrJMbqdu0Ks9Ea03LFI7wJyLeU=\""
+          "Value": "\"qrpkz9jlgl1MTavJEiLT0woZFSwfB5jt1LlYp9eVzzE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 10 Apr 2025 14:46:15 GMT"
+          "Value": "Sat, 03 May 2025 19:11:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1313,7 +2092,52 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-bQF09ZZOsk0T2q2MpSrJMbqdu0Ks9Ea03LFI7wJyLeU="
+          "Value": "sha256-qrpkz9jlgl1MTavJEiLT0woZFSwfB5jt1LlYp9eVzzE="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.unlofai17l.css",
+      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\site.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "8741"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"qrpkz9jlgl1MTavJEiLT0woZFSwfB5jt1LlYp9eVzzE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 03 May 2025 19:11:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "unlofai17l"
+        },
+        {
+          "Name": "label",
+          "Value": "css/site.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-qrpkz9jlgl1MTavJEiLT0woZFSwfB5jt1LlYp9eVzzE="
         }
       ]
     },

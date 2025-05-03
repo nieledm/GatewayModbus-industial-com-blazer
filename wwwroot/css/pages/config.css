@@ -1,0 +1,49 @@
+/* Configuration Page Specific Styles */
+.config-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 1.5rem;
+}
+
+.config-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.config-export-import {
+    display: flex;
+    gap: 10px;
+}
+
+.equipment-table {
+    margin-bottom: 2rem;
+}
+
+.equipment-empty-state {
+    padding: 2rem;
+    text-align: center;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+/* IP Address Input Group */
+.config-ip-group {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 1rem;
+}
+
+.config-ip-part {
+    flex: 1;
+}
+
+.config-ip-separator {
+    font-size: 1.2rem;
+    color: #6c757d;
+    padding-top: 15px;
+}

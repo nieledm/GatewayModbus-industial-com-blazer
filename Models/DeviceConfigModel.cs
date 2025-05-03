@@ -9,7 +9,7 @@ namespace DL6000WebConfig.Models
         public string UnitId2 { get; set; } = "2";
         public string StartIndexDL1 { get; set; } = "2";
         public string StartIndexDL2 { get; set; } = "32";
-        public string Cycle { get; set; } = "1000";
+        public string Cycle { get; set; } = "400";
         public string TimeoutSend { get; set; } = "4000";
         public string TimeoutReceive { get; set; } = "4000";
     }

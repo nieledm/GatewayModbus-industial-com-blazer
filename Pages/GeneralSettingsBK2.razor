@@ -1,4 +1,4 @@
-@page "/general-config"
+@* @page "/config-geral"
 @inject DL6000WebConfig.Services.ConfigService ConfigService
 @inject IJSRuntime JSRuntime
 @using DL6000WebConfig.Models
@@ -134,22 +134,22 @@
                         Endereço IP
                     </h5>
                     <div class="ip-address-group">
-                        <div class="ip-block">
+                        <div class="form-group ip-part">
                             <label>Byte 1</label>
                             <InputText class="form-control" @bind-Value="settings.SlaveIp1" />
                         </div>
                         <span class="ip-separator">.</span>
-                        <div class="ip-block">
+                        <div class="form-group ip-part">
                             <label>Byte 2</label>
                             <InputText class="form-control" @bind-Value="settings.SlaveIp2" />
                         </div>
                         <span class="ip-separator">.</span>
-                        <div class="ip-block">
+                        <div class="form-group ip-part">
                             <label>Byte 3</label>
                             <InputText class="form-control" @bind-Value="settings.SlaveIp3" />
                         </div>
                         <span class="ip-separator">.</span>
-                        <div class="ip-block">
+                        <div class="form-group ip-part">
                             <label>Byte 4</label>
                             <InputText class="form-control" @bind-Value="settings.SlaveIp4" />
                         </div>
@@ -237,4 +237,4 @@
             ConfigService.SaveGeneralSettings(settings!);
         }
     }
-}
+} *@

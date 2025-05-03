@@ -5,12 +5,32 @@
       "PackagePath": "staticwebassets\\DL6000WebConfig.s91n4mr3zc.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\base.css",
+      "PackagePath": "staticwebassets\\css\\base.css"
+    },
+    {
       "Id": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
     },
     {
       "Id": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\components\\buttons.css",
+      "PackagePath": "staticwebassets\\css\\components\\buttons.css"
+    },
+    {
+      "Id": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\components\\forms.css",
+      "PackagePath": "staticwebassets\\css\\components\\forms.css"
+    },
+    {
+      "Id": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\components\\modals.css",
+      "PackagePath": "staticwebassets\\css\\components\\modals.css"
+    },
+    {
+      "Id": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\components\\tables.css",
+      "PackagePath": "staticwebassets\\css\\components\\tables.css"
     },
     {
       "Id": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
@@ -47,6 +67,18 @@
     {
       "Id": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
       "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
+    },
+    {
+      "Id": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\pages\\config.css",
+      "PackagePath": "staticwebassets\\css\\pages\\config.css"
+    },
+    {
+      "Id": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\pages\\general-settings.css",
+      "PackagePath": "staticwebassets\\css\\pages\\general-settings.css"
+    },
+    {
+      "Id": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\pages\\monitor.css",
+      "PackagePath": "staticwebassets\\css\\pages\\monitor.css"
     },
     {
       "Id": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\site.css",

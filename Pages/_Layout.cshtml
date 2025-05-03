@@ -9,7 +9,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <base href="~/" />
     <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
-    <link href="css/site.css" rel="stylesheet" />
+    @* <link href="css/base.css" rel="stylesheet" />
+    <link href="css/components/tables.css" rel="stylesheet" />
+    <link href="css/components/modals.css" rel="stylesheet" />
+    <link href="css/components/buttons.css" rel="stylesheet" />
+    <link href="css/components/forms.css" rel="stylesheet" />
+    <!-- Estilo específico para cada página -->
+    @if (Context.Request.Path.StartsWithSegments("/monitor"))
+    {
+        <link href="css/pages/monitor.css" rel="stylesheet" />
+    }
+    else if (Context.Request.Path.StartsWithSegments("/general-config"))
+    {
+        <link href="css/pages/general-settings.css" rel="stylesheet" />
+    }
+    else if (Context.Request.Path.StartsWithSegments("/config"))
+    {
+        <link href="css/pages/config.css" rel="stylesheet" />
+    }     *@
     <link href="DL6000WebConfig.styles.css" rel="stylesheet" />
     <component type="typeof(HeadOutlet)" render-mode="ServerPrerendered" />
 </head>
