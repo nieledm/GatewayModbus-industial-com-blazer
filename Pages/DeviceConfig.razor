@@ -56,13 +56,11 @@
                                 <button class="btn btn-sm btn-outline-primary action-btn" 
                                         @onclick="() => AbrirModal(index)">
                                     <i class="fas fa-edit"></i>
-                                    @* <span style="display:inline-block;width:20px;text-align:center;">✏️</span> *@
                                     Editar
                                 </button>
                                 <button class="btn btn-sm btn-outline-danger action-btn" 
-                                        @onclick="() => ExcluirEquipamento(index)">
+                                        @onclick="() => ExcluirEquipamentoComConfirmacao(index)">
                                     <i class="fas fa-trash-alt"></i>
-                                    @* <span style="display:inline-block;width:20px;text-align:center;">🗑️</span> *@
                                     Excluir
                                 </button>
                             </td>
@@ -138,7 +136,7 @@
                         <button class="btn btn-secondary" @onclick="FecharModal">
                             Cancelar
                         </button>
-                        <button class="btn btn-primary" @onclick="SalvarEquipamento">
+                        <button class="btn btn-primary" @onclick="SalvarEquipamentoComConfirmacao">
                             @(editandoIndex >= 0 ? "Salvar Alterações" : "Adicionar Equipamento")
                         </button>
                     </div>

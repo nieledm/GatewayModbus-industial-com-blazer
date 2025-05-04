@@ -1,16 +1,22 @@
 [
-  {
-    "DeviceName": "DL6000_2",
-    "Name": "Vaz\u00E3o",
-    "Offset": 62,
-    "Address": "40063",
-    "Value": 0
-  },
-  {
-    "DeviceName": "DL6000_2",
-    "Name": "Temperatura",
-    "Offset": 0,
-    "Address": "40001",
-    "Value": 0
-  }
-]
+    {
+      "DeviceName": "DL6000_1",
+      "Name": "Vazão",
+      "Offset": 2
+    },
+    {
+      "DeviceName": "DL6000_1",
+      "Name": "Temperatura",
+      "Offset": 32
+    },
+    {
+        "DeviceName": "DL6000_2",
+        "Name": "Vazão",
+        "Offset": 62
+      },
+      {
+        "DeviceName": "DL6000_2",
+        "Name": "Temperatura",
+        "Offset": 0
+      }
+  ]

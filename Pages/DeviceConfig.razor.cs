@@ -66,7 +66,7 @@ namespace DL6000WebConfig.Pages
             mensagemErro = null;
         }
 
-        private void SalvarEquipamento()
+        private async Task  SalvarEquipamento()
         {
             try
             {
@@ -185,7 +185,7 @@ namespace DL6000WebConfig.Pages
     }
 
     
-        private void ExcluirEquipamento(int index)
+        private async Task ExcluirEquipamento(int index)
         {
             var device = devices[index];
             ConfigService.DeleteDevice(device.Name);
@@ -210,6 +210,44 @@ namespace DL6000WebConfig.Pages
             if (importedDevices != null)
             {
                 devices = importedDevices;
+            }
+        }
+
+        private async Task ExcluirEquipamentoComConfirmacao(int index)
+        {
+            try 
+            {
+                var confirmed = await JS.InvokeAsync<bool>("confirm", 
+                    "Cuidado!!!\nAo excluir o equipamento todas as suas informações serão perdidas e a operação não poderá ser desfeita.\nTem certeza que deseja continuar?");
+                
+                if (confirmed)
+                {
+                    await ExcluirEquipamento(index);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erro na confirmação: {ex.Message}");
+            }
+        }
+
+        // Método de salvamento com confirmação
+        private async Task SalvarEquipamentoComConfirmacao()
+        {
+            try
+            {
+                var confirmed = await JS.InvokeAsync<bool>("confirm", 
+                    "Confirmar alterações nesta variável?");
+                
+                if (confirmed)
+                {
+                    await SalvarEquipamento();
+                    FecharModal();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erro na confirmação: {ex.Message}");
             }
         }
 
