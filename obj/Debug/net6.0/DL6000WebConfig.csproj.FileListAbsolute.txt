@@ -37,3 +37,7 @@ C:\Users\Niele\Desktop\DL6000\DL6000WebConfig\obj\Debug\net6.0\DL6000WebConfig.p
 C:\Users\Niele\Desktop\DL6000\DL6000WebConfig\obj\Debug\net6.0\DL6000WebConfig.genruntimeconfig.cache
 C:\Users\Niele\Desktop\DL6000\DL6000WebConfig\obj\Debug\net6.0\ref\DL6000WebConfig.dll
 C:\Users\Niele\Desktop\DL6000\DL6000WebConfig\bin\Debug\net6.0\variables.json
+C:\Users\Niele\Desktop\DL6000\DL6000WebConfig\obj\Debug\net6.0\scopedcss\Pages\DeviceConfig.razor.rz.scp.css
+C:\Users\Niele\Desktop\DL6000\DL6000WebConfig\obj\Debug\net6.0\scopedcss\Pages\GeneralSettings.razor.rz.scp.css
+C:\Users\Niele\Desktop\DL6000\DL6000WebConfig\obj\Debug\net6.0\scopedcss\Pages\Monitor.razor.rz.scp.css
+C:\Users\Niele\Desktop\DL6000\DL6000WebConfig\obj\Debug\net6.0\scopedcss\Pages\Sobre.razor.rz.scp.css

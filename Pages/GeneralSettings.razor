@@ -1,9 +1,9 @@
 @page "/general-config"
-@inject DL6000WebConfig.Services.ConfigService ConfigService
-@inject IJSRuntime JSRuntime
+@* @inject DL6000WebConfig.Services.ConfigService ConfigService
+@inject IJSRuntime JSRuntime *@
 @using DL6000WebConfig.Models
 
-<style>
+@* <style>
     .config-container {
         max-width: 900px;
         margin: 20px auto;
@@ -99,7 +99,7 @@
         padding: 30px 0;
         color: #6c757d;
     }
-</style>
+</style> *@
 
 <div class="config-container">
     <h3 class="config-title">
@@ -194,7 +194,7 @@
     }
 </div>
 
-@code {
+@* @code {
     private GeneralSettingsModel? settings;
     private string deviceCountInput = "";
     private string? numberError;
@@ -237,4 +237,4 @@
             ConfigService.SaveGeneralSettings(settings!);
         }
     }
-}
+} *@

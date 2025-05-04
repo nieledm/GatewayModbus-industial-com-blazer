@@ -24,52 +24,12 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Niele/Desktop/DL6000/DL6000WebConfig/Pages/DeviceConfig.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGV2aWNlQ29uZmlnLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Niele/Desktop/DL6000/DL6000WebConfig/Pages/DeviceConfigBK1.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGV2aWNlQ29uZmlnQksxLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Niele/Desktop/DL6000/DL6000WebConfig/Pages/DeviceConfigBK2.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGV2aWNlQ29uZmlnQksyLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/Niele/Desktop/DL6000/DL6000WebConfig/Pages/FetchData.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmV0Y2hEYXRhLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Niele/Desktop/DL6000/DL6000WebConfig/Pages/GeneralSettings.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR2VuZXJhbFNldHRpbmdzLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Niele/Desktop/DL6000/DL6000WebConfig/Pages/GeneralSettingsBK1.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR2VuZXJhbFNldHRpbmdzQksxLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Niele/Desktop/DL6000/DL6000WebConfig/Pages/GeneralSettingsBK2.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR2VuZXJhbFNldHRpbmdzQksyLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/Niele/Desktop/DL6000/DL6000WebConfig/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Niele/Desktop/DL6000/DL6000WebConfig/Pages/Monitor.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTW9uaXRvci5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Niele/Desktop/DL6000/DL6000WebConfig/Pages/MonitorBK1.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTW9uaXRvckJLMS5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Niele/Desktop/DL6000/DL6000WebConfig/Pages/MonitorBK2.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTW9uaXRvckJLMi5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Niele/Desktop/DL6000/DL6000WebConfig/Pages/MonitorBK3.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTW9uaXRvckJLMy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Niele/Desktop/DL6000/DL6000WebConfig/Shared/SurveyPrompt.razor]
@@ -79,6 +39,22 @@ build_metadata.AdditionalFiles.CssScope =
 [C:/Users/Niele/Desktop/DL6000/DL6000WebConfig/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Niele/Desktop/DL6000/DL6000WebConfig/Pages/DeviceConfig.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGV2aWNlQ29uZmlnLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-ysnf7bpz32
+
+[C:/Users/Niele/Desktop/DL6000/DL6000WebConfig/Pages/GeneralSettings.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR2VuZXJhbFNldHRpbmdzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-1s15z9q0xu
+
+[C:/Users/Niele/Desktop/DL6000/DL6000WebConfig/Pages/Monitor.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTW9uaXRvci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-9skt54y8er
+
+[C:/Users/Niele/Desktop/DL6000/DL6000WebConfig/Pages/Sobre.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU29icmUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-vg4vy53sw3
 
 [C:/Users/Niele/Desktop/DL6000/DL6000WebConfig/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
