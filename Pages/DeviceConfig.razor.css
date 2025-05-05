@@ -59,6 +59,16 @@
 
 .equipment-table th:nth-child(4),
 .equipment-table td:nth-child(4) {
+    width: 15%; /* Start Index */
+}
+
+.equipment-table th:nth-child(5),
+.equipment-table td:nth-child(5) {
+    width: 15%; /* End Index */
+}
+
+.equipment-table th:nth-child(6),
+.equipment-table td:nth-child(6) {
     width: 35%; /* Ações */
     text-align: center;
 }

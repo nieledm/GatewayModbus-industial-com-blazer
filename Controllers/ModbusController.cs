@@ -24,10 +24,17 @@ namespace DL6000WebConfig.Controllers
         [HttpGet("variables")]
         public ActionResult<List<ModbusVariable>> GetVariables()
         {
-            var variables = _variableService.GetAll();
+            var variables = _variableService.GetAll();            
             foreach (var v in variables)
             {
-                v.Address = $"40{(v.Offset + 1):D3}";
+                var config = _variableService.GetDeviceConfig(v.DeviceName);
+                if (config != null){
+                    v.Address = $"40{(v.Offset + 1):D3}";
+                    v.RealAddress = v.GetRealAddress(config);
+                }
+                else{
+                    Console.WriteLine($"Configuração não encontrada para o dispositivo {v.DeviceName}");
+                }                                   
             }
             return variables;
         }
@@ -36,12 +43,16 @@ namespace DL6000WebConfig.Controllers
         public IActionResult AddVariable([FromBody] ModbusVariable variable)
         {
             _variableService.Add(variable);
-            return Ok();
+
+            var config = _variableService.GetDeviceConfig();
+            variable.RealAddress = variable.GetRealAddress(config);
+
+            return Ok(variable);
         }
 
         [HttpPut("variables")]
         public IActionResult UpdateVariable([FromBody] VariableUpdatePayload payload)
-        {
+        {            
             _variableService.Update(payload.Updated, payload.Original);
             return Ok();
         }

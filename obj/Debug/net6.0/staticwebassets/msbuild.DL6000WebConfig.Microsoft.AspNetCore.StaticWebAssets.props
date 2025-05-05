@@ -198,23 +198,23 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\open-iconic\README.md'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\DL6000WebConfig.5pj1jwemo8.bundle.scp.css'))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\DL6000WebConfig.1wel8hhbuz.bundle.scp.css'))">
       <SourceType>Package</SourceType>
       <SourceId>DL6000WebConfig</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/DL6000WebConfig</BasePath>
-      <RelativePath>DL6000WebConfig.5pj1jwemo8.bundle.scp.css</RelativePath>
+      <RelativePath>DL6000WebConfig.1wel8hhbuz.bundle.scp.css</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>Reference</AssetMode>
       <AssetRole>Primary</AssetRole>
       <RelatedAsset></RelatedAsset>
       <AssetTraitName>ScopedCss</AssetTraitName>
       <AssetTraitValue>ProjectBundle</AssetTraitValue>
-      <Fingerprint>5pj1jwemo8</Fingerprint>
-      <Integrity>BxOvelci0mWK0Ge28EZuYk95SPTMHuwPoVG2mzEU45o=</Integrity>
+      <Fingerprint>1wel8hhbuz</Fingerprint>
+      <Integrity>XwXYECaYMArIC5S+j50xzga3RLyGp+YZCiO1opNhJn8=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\DL6000WebConfig.5pj1jwemo8.bundle.scp.css'))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\DL6000WebConfig.1wel8hhbuz.bundle.scp.css'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\favicon.ico'))">
       <SourceType>Package</SourceType>

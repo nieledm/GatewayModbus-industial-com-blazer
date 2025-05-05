@@ -1,7 +1,9 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using DL6000WebConfig.Data;
 using DL6000WebConfig.Services;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,6 +36,22 @@ builder.Services.AddScoped<HttpClient>(sp =>
 builder.Services.AddSingleton<ConfigService>(sp =>
     new ConfigService(Path.Combine("..", "DL6000_TO_MODBUS_SLAVE.exe.config")));
 
+#region Autenticação
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.Cookie.Name = "auth_token";
+        options.LoginPath = "/login";
+        options.Cookie.HttpOnly = true;
+        options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
+        options.SlidingExpiration = true;
+    });
+
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddSingleton<UserService>();
+#endregion
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -51,6 +69,10 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+// Autenticação
+app.UseAuthentication();
+app.UseAuthorization();
+
 app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");
 
@@ -58,3 +80,4 @@ app.MapFallbackToPage("/_Host");
 app.MapControllers();
 
 app.Run();
+

@@ -28,7 +28,7 @@ namespace DL6000WebConfig.Pages
         {
             devices = ConfigService.GetDevices();
         }
-
+        
         private void AbrirModal(int? index)
         {
             if (index.HasValue && index.Value >= 0 && index.Value < devices.Count)
@@ -95,7 +95,7 @@ namespace DL6000WebConfig.Pages
                     }
                     
                     // Atualiza com os valores convertidos
-                    ConfigService.UpdateDevice(form);
+                    ConfigService.UpdateDevice(form, antigoNome);
                 }
                 else
                 {
@@ -116,28 +116,23 @@ namespace DL6000WebConfig.Pages
             {
                 mensagemErro = $"Erro ao salvar: {ex.Message}";
             }
-    }
+        }
 
         private (bool isValid, string errorMessage) ValidateEquipment(DeviceConfigModel equipment)
         {
-            // Validação do Nome
+            #region Validação do device.name
             if (string.IsNullOrWhiteSpace(equipment.Name))
             {
                 return (false, "O nome do equipamento é obrigatório.");
             }
 
-            if (!equipment.Name.StartsWith("DL6000_"))
-            {
-                return (false, "O nome deve começar com 'DL6000_'.");
-            }
-
-            var numberPart = equipment.Name.Substring(7);
+            var numberPart = equipment.Name.Replace("DL6000_", "");
             if (!int.TryParse(numberPart, out _))
             {
                 return (false, "Após 'DL6000_' deve conter apenas números.");
             }
-
-            // Validação do IP (já é string)
+            #endregion
+            #region  Validação do IP
             if (string.IsNullOrWhiteSpace(equipment.Ip))
             {
                 return (false, "O endereço IP é obrigatório.");
@@ -156,35 +151,69 @@ namespace DL6000WebConfig.Pages
                     return (false, $"Parte inválida do IP: '{part}'. Deve ser entre 0 e 255.");
                 }
             }
-
-            // Validação da Porta (string para int)
+            #endregion
+            #region  Validação da Porta
             if (!int.TryParse(equipment.Port, out int port) || port < 1 || port > 65535)
             {
                 return (false, "A porta deve ser um número entre 1 e 65535.");
             }
-
-            // Validação do TimeoutSend (string para int)
+            #endregion
+            #region Validação dos Timeouts
             if (!int.TryParse(equipment.TimeoutSend, out int timeoutSend) || timeoutSend <= 0)
             {
                 return (false, "Timeout de envio deve ser um número maior que zero.");
             }
 
-            // Validação do TimeoutReceive (string para int)
             if (!int.TryParse(equipment.TimeoutReceive, out int timeoutReceive) || timeoutReceive <= 0)
             {
                 return (false, "Timeout de recebimento deve ser um número maior que zero.");
             }
-
-            // Validação do Cycle (string para int)
+            #endregion
+            #region  Validação do Cycle
             if (!int.TryParse(equipment.Cycle, out int cycle) || cycle <= 0)
             {
                 return (false, "O ciclo deve ser um número maior que zero.");
             }
+            #endregion
+            #region  Validações dos StartIndexDL
+            if (string.IsNullOrWhiteSpace(equipment.StartIndexDL1))
+            {
+                return (false, "O campo Start Index DL1 não pode estar vazio.");
+            }
 
+            if (!int.TryParse(equipment.StartIndexDL1, out int startDL1))
+            {
+                return (false, "Start Index DL1 deve ser um número inteiro.");
+            }
+
+            if (string.IsNullOrWhiteSpace(equipment.StartIndexDL2))
+            {
+                return (false, "O campo Start Index DL2 não pode estar vazio.");
+            }
+
+            if (!int.TryParse(equipment.StartIndexDL2, out int startDL2))
+            {
+                return (false, "Start Index DL2 deve ser um número inteiro.");
+            }
+
+            // Validação adicional dos ranges
+            if (startDL1 < 0)
+            {
+                return (false, "Start Index DL1 não pode ser negativo.");
+            }
+
+            if (startDL2 < 0)
+            {
+                return (false, "Start Index DL2 não pode ser negativo.");
+            }
+
+            if (startDL2 > 0 && startDL2 <= startDL1)
+            {
+                return (false, "Start Index DL2 deve ser maior que DL1 ou igual a 0.");
+            }
+            #endregion
             return (true, null);
-    }
-
-    
+        }   
         private async Task ExcluirEquipamento(int index)
         {
             var device = devices[index];
@@ -252,4 +281,5 @@ namespace DL6000WebConfig.Pages
         }
 
     }
+    
 }

@@ -126,12 +126,58 @@ namespace DL6000WebConfig.Pages
             shouldUpdate = true;
         }
 
+        // private async Task SaveVariable()
+        // {
+        //     if (editVariable == null || originalVariable == null) return;
+
+        //     try
+        //     {
+        //         var payload = new
+        //         {
+        //             original = originalVariable,
+        //             updated = editVariable
+        //         };
+
+        //         var response = await Http.PutAsJsonAsync("/api/modbus/variables", payload);
+        //         if (response.IsSuccessStatusCode)
+        //         {
+        //             await LoadVariables();
+        //             CloseEditModal();
+        //         }
+        //         else
+        //         {
+        //             Console.WriteLine($"Erro ao salvar: {response.StatusCode}");
+        //         }
+        //     }
+        //     catch (Exception ex)
+        //     {
+        //         Console.WriteLine($"Erro ao salvar variável: {ex}");
+        //     }
+        // }
+
         private async Task SaveVariable()
         {
             if (editVariable == null || originalVariable == null) return;
 
             try
             {
+                // Carregar dispositivos apenas para ler as configurações
+                var devices = ConfigService.GetDevices();
+                if (devices != null)
+                {
+                    deviceNames = devices.Select(d => d.Name).ToList();
+                }
+
+                // Obter a configuração do dispositivo (somente para leitura)
+                var config = devices?.FirstOrDefault(d => d.Name == editVariable.DeviceName);
+
+                if (config != null)
+                {
+                    // Atualizar o RealAddress com base na configuração lida do .config
+                    editVariable.UpdateRealAddress(config);
+                }
+
+                // Atualizar a variável no JSON sem modificar o arquivo .config
                 var payload = new
                 {
                     original = originalVariable,
@@ -141,8 +187,8 @@ namespace DL6000WebConfig.Pages
                 var response = await Http.PutAsJsonAsync("/api/modbus/variables", payload);
                 if (response.IsSuccessStatusCode)
                 {
-                    await LoadVariables();
-                    CloseEditModal();
+                    await LoadVariables();  // Recarregar as variáveis
+                    CloseEditModal();       // Fechar o modal
                 }
                 else
                 {
@@ -154,6 +200,7 @@ namespace DL6000WebConfig.Pages
                 Console.WriteLine($"Erro ao salvar variável: {ex}");
             }
         }
+
 
 
         private async Task AddVariable()
@@ -168,9 +215,12 @@ namespace DL6000WebConfig.Pages
                 var response = await Http.PostAsJsonAsync("/api/modbus/variables", newVar);
                 if (response.IsSuccessStatusCode)
                 {
+                    var addedVar = await response.Content.ReadFromJsonAsync<ModbusVariable>();
+                    Console.WriteLine($"Variável adicionada com RealAddress: {addedVar?.RealAddress}");
+                    
                     newVar = new();
                     await LoadVariables();
-                }
+                }                
             }
             catch (Exception ex)
             {

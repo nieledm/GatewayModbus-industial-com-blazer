@@ -1,4 +1,5 @@
 @page "/monitor"
+@using Microsoft.AspNetCore.Components.Forms
 @using DL6000WebConfig.Models
 
 <div class="monitor-container">
@@ -19,7 +20,7 @@
             <p class="mt-2">Carregando variáveis...</p>
         </div>
     }
-    else
+    else 
     {
         <div class="table-responsive">
             <table class="table monitor-table table-hover">
@@ -28,8 +29,9 @@
                         <th>Dispositivo</th>
                         <th>Nome</th>
                         <th>Offset</th>
-                        <th>Endereço</th>
+                        <th>Endereço DL6000</th>
                         <th>Valor Atual</th>
+                        <th>Endereço Modbus</th>
                         <th class="th-actions">Ações</th>
                     </tr>
                 </thead>
@@ -42,6 +44,7 @@
                             <td>@variable.Offset</td>
                             <td><span class="badge bg-secondary">@variable.Address</span></td>
                             <td class="value-cell">@variable.Value</td>
+                            <td><span class="badge bg-secondary">@variable.RealAddress</span></td>
                             <td>
                                 <div class="d-flex gap-2">
                                     <button class="btn btn-sm btn-outline-primary action-btn" 

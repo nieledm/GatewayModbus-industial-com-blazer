@@ -34,7 +34,7 @@ namespace DL6000WebConfig.Services
             var list = GetAll();
             list.Add(variable);
             Save(list);
-            _configService.AddStartIndexEntry(variable);
+            // _configService.AddStartIndexEntry(variable);
         }
 
         public void Update(ModbusVariable updated, ModbusVariable original)
@@ -60,5 +60,15 @@ namespace DL6000WebConfig.Services
             list.RemoveAll(v => v.DeviceName == deviceName);
             Save(list);
         }
+        public DeviceConfigModel GetDeviceConfig(string deviceName = "DL6000_")
+        {
+            var devices = _configService.GetDevices();
+            var config = devices.FirstOrDefault(d => d.Name == deviceName) ?? new DeviceConfigModel();
+
+            if (string.IsNullOrEmpty(config.StartIndexDL1)) config.StartIndexDL1 = "0";
+            if (string.IsNullOrEmpty(config.StartIndexDL2)) config.StartIndexDL2 = "0";
+            
+            return config;
+        }        
     }
 }

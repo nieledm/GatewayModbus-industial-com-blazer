@@ -3,7 +3,7 @@
   "ManifestType": "Build",
   "Endpoints": [
     {
-      "Route": "DL6000WebConfig.5pj1jwemo8.styles.css",
+      "Route": "DL6000WebConfig.1wel8hhbuz.styles.css",
       "AssetFile": "DL6000WebConfig.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -17,7 +17,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "20092"
+          "Value": "20368"
         },
         {
           "Name": "Content-Type",
@@ -25,21 +25,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"BxOvelci0mWK0Ge28EZuYk95SPTMHuwPoVG2mzEU45o=\""
+          "Value": "\"XwXYECaYMArIC5S+j50xzga3RLyGp+YZCiO1opNhJn8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 03 May 2025 23:32:00 GMT"
+          "Value": "Sun, 04 May 2025 20:48:08 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "5pj1jwemo8"
+          "Value": "1wel8hhbuz"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-BxOvelci0mWK0Ge28EZuYk95SPTMHuwPoVG2mzEU45o="
+          "Value": "sha256-XwXYECaYMArIC5S+j50xzga3RLyGp+YZCiO1opNhJn8="
         },
         {
           "Name": "label",
@@ -62,7 +62,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "20092"
+          "Value": "20368"
         },
         {
           "Name": "Content-Type",
@@ -70,17 +70,17 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"BxOvelci0mWK0Ge28EZuYk95SPTMHuwPoVG2mzEU45o=\""
+          "Value": "\"XwXYECaYMArIC5S+j50xzga3RLyGp+YZCiO1opNhJn8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 03 May 2025 23:32:00 GMT"
+          "Value": "Sun, 04 May 2025 20:48:08 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-BxOvelci0mWK0Ge28EZuYk95SPTMHuwPoVG2mzEU45o="
+          "Value": "sha256-XwXYECaYMArIC5S+j50xzga3RLyGp+YZCiO1opNhJn8="
         }
       ]
     },

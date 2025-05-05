@@ -60,6 +60,16 @@
 
 .equipment-table th:nth-child(4)[b-ysnf7bpz32],
 .equipment-table td:nth-child(4)[b-ysnf7bpz32] {
+    width: 15%; /* Start Index */
+}
+
+.equipment-table th:nth-child(5)[b-ysnf7bpz32],
+.equipment-table td:nth-child(5)[b-ysnf7bpz32] {
+    width: 15%; /* End Index */
+}
+
+.equipment-table th:nth-child(6)[b-ysnf7bpz32],
+.equipment-table td:nth-child(6)[b-ysnf7bpz32] {
     width: 35%; /* Ações */
     text-align: center;
 }

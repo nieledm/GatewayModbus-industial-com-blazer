@@ -132,17 +132,17 @@
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-rDb1fXbrDo8/dpt6Gi3UAobONVQv/lE2bB7lGwRQ0jM="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"3658"},{"Name":"Content-Type","Value":"text/markdown"},{"Name":"ETag","Value":"\u0022rDb1fXbrDo8/dpt6Gi3UAobONVQv/lE2bB7lGwRQ0jM=\u0022"},{"Name":"Last-Modified","Value":"Thu, 10 Apr 2025 14:46:15 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/DL6000WebConfig/DL6000WebConfig.5pj1jwemo8.bundle.scp.css">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\DL6000WebConfig.5pj1jwemo8.bundle.scp.css'))</AssetFile>
+    <StaticWebAssetEndpoint Include="_content/DL6000WebConfig/DL6000WebConfig.1wel8hhbuz.bundle.scp.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\DL6000WebConfig.1wel8hhbuz.bundle.scp.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"5pj1jwemo8"},{"Name":"integrity","Value":"sha256-BxOvelci0mWK0Ge28EZuYk95SPTMHuwPoVG2mzEU45o="},{"Name":"label","Value":"_content/DL6000WebConfig/DL6000WebConfig.bundle.scp.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"20092"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022BxOvelci0mWK0Ge28EZuYk95SPTMHuwPoVG2mzEU45o=\u0022"},{"Name":"Last-Modified","Value":"Sat, 03 May 2025 23:32:00 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"1wel8hhbuz"},{"Name":"integrity","Value":"sha256-XwXYECaYMArIC5S\u002Bj50xzga3RLyGp\u002BYZCiO1opNhJn8="},{"Name":"label","Value":"_content/DL6000WebConfig/DL6000WebConfig.bundle.scp.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"20368"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022XwXYECaYMArIC5S\u002Bj50xzga3RLyGp\u002BYZCiO1opNhJn8=\u0022"},{"Name":"Last-Modified","Value":"Sun, 04 May 2025 20:48:08 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/DL6000WebConfig/DL6000WebConfig.bundle.scp.css">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\DL6000WebConfig.5pj1jwemo8.bundle.scp.css'))</AssetFile>
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\DL6000WebConfig.1wel8hhbuz.bundle.scp.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-BxOvelci0mWK0Ge28EZuYk95SPTMHuwPoVG2mzEU45o="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"20092"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022BxOvelci0mWK0Ge28EZuYk95SPTMHuwPoVG2mzEU45o=\u0022"},{"Name":"Last-Modified","Value":"Sat, 03 May 2025 23:32:00 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-XwXYECaYMArIC5S\u002Bj50xzga3RLyGp\u002BYZCiO1opNhJn8="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"20368"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022XwXYECaYMArIC5S\u002Bj50xzga3RLyGp\u002BYZCiO1opNhJn8=\u0022"},{"Name":"Last-Modified","Value":"Sun, 04 May 2025 20:48:08 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/DL6000WebConfig/favicon.61n19gt1b8.ico">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\favicon.ico'))</AssetFile>
