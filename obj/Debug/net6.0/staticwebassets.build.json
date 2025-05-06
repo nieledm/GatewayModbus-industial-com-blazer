@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "CoQE9HvJfEE/TLtkSX/bpa71HhxqbmO7cffBNTFXW2w=",
+  "Hash": "b4zsWhK9S+bEsYNH/b3/rjfdHGO0wINj+dZne9Fuomk=",
   "Source": "DL6000WebConfig",
   "BasePath": "_content/DL6000WebConfig",
   "Mode": "Default",
@@ -31,8 +31,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ApplicationBundle",
-      "Fingerprint": "1wel8hhbuz",
-      "Integrity": "XwXYECaYMArIC5S+j50xzga3RLyGp+YZCiO1opNhJn8=",
+      "Fingerprint": "frzrnswpl4",
+      "Integrity": "NWtZwLJjbXG0d0i5WT+YK2Nmi4d0BUwyBDVn9yhlZPQ=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\obj\\Debug\\net6.0\\scopedcss\\bundle\\DL6000WebConfig.styles.css"
@@ -52,8 +52,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ProjectBundle",
-      "Fingerprint": "1wel8hhbuz",
-      "Integrity": "XwXYECaYMArIC5S+j50xzga3RLyGp+YZCiO1opNhJn8=",
+      "Fingerprint": "frzrnswpl4",
+      "Integrity": "NWtZwLJjbXG0d0i5WT+YK2Nmi4d0BUwyBDVn9yhlZPQ=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\DL6000WebConfig.bundle.scp.css"
@@ -309,6 +309,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\images\\dl6000-equipment.png",
+      "SourceId": "DL6000WebConfig",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\",
+      "BasePath": "_content/DL6000WebConfig",
+      "RelativePath": "images/dl6000-equipment#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ktf5igvb7d",
+      "Integrity": "WCGG3AM7Zz0nWB2gM++FBvtadqCW2Xkmu1N/lvfUC4A=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\dl6000-equipment.png"
     },
     {
       "Identity": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\JS\\site.js",
@@ -1236,96 +1257,6 @@
       ]
     },
     {
-      "Route": "DL6000WebConfig.1wel8hhbuz.bundle.scp.css",
-      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\DL6000WebConfig.bundle.scp.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "20368"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"XwXYECaYMArIC5S+j50xzga3RLyGp+YZCiO1opNhJn8=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 04 May 2025 20:48:08 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "1wel8hhbuz"
-        },
-        {
-          "Name": "label",
-          "Value": "DL6000WebConfig.bundle.scp.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-XwXYECaYMArIC5S+j50xzga3RLyGp+YZCiO1opNhJn8="
-        }
-      ]
-    },
-    {
-      "Route": "DL6000WebConfig.1wel8hhbuz.styles.css",
-      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\obj\\Debug\\net6.0\\scopedcss\\bundle\\DL6000WebConfig.styles.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "20368"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"XwXYECaYMArIC5S+j50xzga3RLyGp+YZCiO1opNhJn8=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 04 May 2025 20:48:08 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "1wel8hhbuz"
-        },
-        {
-          "Name": "label",
-          "Value": "DL6000WebConfig.styles.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-XwXYECaYMArIC5S+j50xzga3RLyGp+YZCiO1opNhJn8="
-        }
-      ]
-    },
-    {
       "Route": "DL6000WebConfig.bundle.scp.css",
       "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\DL6000WebConfig.bundle.scp.css",
       "Selectors": [],
@@ -1336,7 +1267,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "20368"
+          "Value": "25240"
         },
         {
           "Name": "Content-Type",
@@ -1344,11 +1275,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"XwXYECaYMArIC5S+j50xzga3RLyGp+YZCiO1opNhJn8=\""
+          "Value": "\"NWtZwLJjbXG0d0i5WT+YK2Nmi4d0BUwyBDVn9yhlZPQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 04 May 2025 20:48:08 GMT"
+          "Value": "Tue, 06 May 2025 01:39:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1358,7 +1289,97 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-XwXYECaYMArIC5S+j50xzga3RLyGp+YZCiO1opNhJn8="
+          "Value": "sha256-NWtZwLJjbXG0d0i5WT+YK2Nmi4d0BUwyBDVn9yhlZPQ="
+        }
+      ]
+    },
+    {
+      "Route": "DL6000WebConfig.frzrnswpl4.bundle.scp.css",
+      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\DL6000WebConfig.bundle.scp.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "25240"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"NWtZwLJjbXG0d0i5WT+YK2Nmi4d0BUwyBDVn9yhlZPQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 06 May 2025 01:39:09 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "frzrnswpl4"
+        },
+        {
+          "Name": "label",
+          "Value": "DL6000WebConfig.bundle.scp.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-NWtZwLJjbXG0d0i5WT+YK2Nmi4d0BUwyBDVn9yhlZPQ="
+        }
+      ]
+    },
+    {
+      "Route": "DL6000WebConfig.frzrnswpl4.styles.css",
+      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\obj\\Debug\\net6.0\\scopedcss\\bundle\\DL6000WebConfig.styles.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "25240"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"NWtZwLJjbXG0d0i5WT+YK2Nmi4d0BUwyBDVn9yhlZPQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 06 May 2025 01:39:09 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "frzrnswpl4"
+        },
+        {
+          "Name": "label",
+          "Value": "DL6000WebConfig.styles.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-NWtZwLJjbXG0d0i5WT+YK2Nmi4d0BUwyBDVn9yhlZPQ="
         }
       ]
     },
@@ -1373,7 +1394,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "20368"
+          "Value": "25240"
         },
         {
           "Name": "Content-Type",
@@ -1381,11 +1402,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"XwXYECaYMArIC5S+j50xzga3RLyGp+YZCiO1opNhJn8=\""
+          "Value": "\"NWtZwLJjbXG0d0i5WT+YK2Nmi4d0BUwyBDVn9yhlZPQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 04 May 2025 20:48:08 GMT"
+          "Value": "Tue, 06 May 2025 01:39:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1395,7 +1416,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-XwXYECaYMArIC5S+j50xzga3RLyGp+YZCiO1opNhJn8="
+          "Value": "sha256-NWtZwLJjbXG0d0i5WT+YK2Nmi4d0BUwyBDVn9yhlZPQ="
         }
       ]
     },
@@ -1478,6 +1499,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM="
+        }
+      ]
+    },
+    {
+      "Route": "images/dl6000-equipment.ktf5igvb7d.png",
+      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\images\\dl6000-equipment.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1750845"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"WCGG3AM7Zz0nWB2gM++FBvtadqCW2Xkmu1N/lvfUC4A=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 06 May 2025 01:33:53 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ktf5igvb7d"
+        },
+        {
+          "Name": "label",
+          "Value": "images/dl6000-equipment.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-WCGG3AM7Zz0nWB2gM++FBvtadqCW2Xkmu1N/lvfUC4A="
+        }
+      ]
+    },
+    {
+      "Route": "images/dl6000-equipment.png",
+      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\images\\dl6000-equipment.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1750845"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"WCGG3AM7Zz0nWB2gM++FBvtadqCW2Xkmu1N/lvfUC4A=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 06 May 2025 01:33:53 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-WCGG3AM7Zz0nWB2gM++FBvtadqCW2Xkmu1N/lvfUC4A="
         }
       ]
     },

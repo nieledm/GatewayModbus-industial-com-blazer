@@ -367,6 +367,236 @@ transition: opacity 0.2s;
     padding: 30px 0;
     color: #6c757d;
 }
+/* _content/DL6000WebConfig/Pages/Login.razor.rz.scp.css */
+
+/* ESTILOS GERAIS */
+body[b-28ntraog13] {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+}
+
+.raizen-login-container[b-28ntraog13] {
+    display: flex;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1A3E6F, #0F2C56);
+}
+
+/* SEÇÃO DO EQUIPAMENTO */
+.equipment-section[b-28ntraog13] {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+    position: relative;
+    max-width: 100%;
+    height: auto;
+}
+
+.equipment-image[b-28ntraog13] {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background-color: transparent;
+    position: relative;
+    max-width: 70%;
+    aspect-ratio: 30/33;
+    /* height: auto; */
+}
+
+.branding[b-28ntraog13] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.raizen-logo[b-28ntraog13] {
+    height: 40px;
+}
+
+.model[b-28ntraog13] {
+    color: #F58220;
+    font-weight: bold;
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+}
+
+/* SEÇÃO DO FORMULÁRIO */
+.form-section[b-28ntraog13] {
+    width: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background-color: white;
+}
+
+.login-card[b-28ntraog13] {
+    width: 100%;
+    max-width: 380px;
+}
+
+.login-header[b-28ntraog13] {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.title[b-28ntraog13] {
+    font-size: 1.8rem;
+    color: #1A3E6F;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.subtitle[b-28ntraog13] {
+    font-size: 1rem;
+    color: #005BAC;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* CAMPOS DE ENTRADA */
+.input-group[b-28ntraog13] {
+    margin-bottom: 1.5rem;
+}
+
+.input-icon-wrapper[b-28ntraog13] {
+    display: flex;
+    align-items: center;
+    background-color: #F0F4F8;
+    border-radius: 8px;
+    padding: 0 1rem;
+    height: 50px;
+    border: 2px solid transparent;
+    transition: all 0.3s;
+}
+
+.input-icon-wrapper:focus-within[b-28ntraog13] {
+    border-color: #F58220;
+    box-shadow: 0 0 0 3px rgba(245, 130, 32, 0.2);
+}
+
+.input-icon-wrapper i[b-28ntraog13] {
+    color: #005BAC;
+    margin-right: 0.75rem;
+    font-size: 1.1rem;
+}
+
+.input-field[b-28ntraog13] {
+    border: none;
+    outline: none;
+    flex: 1;
+    font-size: 1rem;
+    color: #1A3E6F;
+    background: transparent;
+    font-weight: 500;
+}
+
+.input-field[b-28ntraog13]::placeholder {
+    color: #7B8FA1;
+    font-weight: 400;
+}
+
+/* BOTÕES */
+.button-group[b-28ntraog13] {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.login-button[b-28ntraog13] {
+    flex: 1;
+    padding: 1rem;
+    background: linear-gradient(135deg, #F58220, #E67419);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 6px rgba(245, 130, 32, 0.3);
+}
+
+.login-button:hover[b-28ntraog13] {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(245, 130, 32, 0.4);
+    background: linear-gradient(135deg, #F68B2A, #F58220);
+}
+
+.clear-button[b-28ntraog13] {
+    flex: 0.5;
+    padding: 1rem;
+    background: transparent;
+    color: #005BAC;
+    border: 2px solid #005BAC;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.clear-button:hover[b-28ntraog13] {
+    background-color: rgba(0, 91, 172, 0.1);
+}
+
+/* MENSAGEM DE STATUS */
+.status-message[b-28ntraog13] {
+    margin-top: 1.5rem;
+    padding: 0.75rem 1rem;
+    background-color: #F7FAFC;
+    border-radius: 6px;
+    color: #005BAC;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-left: 4px solid #005BAC;
+}
+
+.status-message i[b-28ntraog13] {
+    color: #005BAC;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 992px) {
+    .raizen-login-container[b-28ntraog13] {
+        flex-direction: column;
+    }
+    
+    .equipment-section[b-28ntraog13] {
+        padding: 1.5rem;
+        min-height: 300px;
+    }
+    
+    .form-section[b-28ntraog13] {
+        width: 100%;
+        padding: 2rem 1.5rem;
+    }
+    
+    .button-group[b-28ntraog13] {
+        flex-direction: column;
+    }
+    
+    .clear-button[b-28ntraog13] {
+        flex: 1;
+    }
+}
 /* _content/DL6000WebConfig/Pages/Monitor.razor.rz.scp.css */
 
 /* Estilos Gerais */

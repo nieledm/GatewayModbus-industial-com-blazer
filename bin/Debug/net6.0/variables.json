@@ -30,13 +30,5 @@
     "Address": "40001",
     "Value": 0,
     "RealAddress": 0
-  },
-  {
-    "DeviceName": "DL6000_7",
-    "Name": "Teste",
-    "Offset": 19,
-    "Address": "40020",
-    "Value": 0,
-    "RealAddress": 29
   }
 ]

@@ -1,51 +1,54 @@
+@layout EmptyLayout
 @page "/login"
-@using DL6000WebConfig.Services
-@inject UserService UserService
-@inject NavigationManager Navigation
 
-<h3>Login</h3>
-
-<EditForm Model="@loginModel" OnValidSubmit="HandleLogin">
-    <div class="form-group">
-        <label>Usuário:</label>
-        <InputText @bind-Value="loginModel.Username" class="form-control" />
+<div class="raizen-login-container">
+    <!-- Seção do equipamento DL6000 -->
+    <div class="equipment-section">
+        <img src="images/dl6000-equipment.png" alt="Raízen" class="equipment-image" />
     </div>
 
-    <div class="form-group">
-        <label>Senha:</label>
-        <InputText type="password" @bind-Value="loginModel.Password" class="form-control" />
+    <!-- Seção do formulário -->
+    <div class="form-section">
+        <div class="login-card">
+            <div class="login-header">
+                <h2 class="title">Controle DL6000</h2>
+                <p class="subtitle">Autenticação de Operador</p>
+            </div>
+
+            <EditForm Model="@loginModel" OnValidSubmit="HandleLogin">
+                <DataAnnotationsValidator />
+
+                <div class="input-group">
+                    <div class="input-icon-wrapper">
+                        <i class="fas fa-id-card"></i>
+                        <input type="text" class="input-field" placeholder="ID do Operador" />
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <div class="input-icon-wrapper">
+                        <i class="fas fa-fingerprint"></i>
+                        <input type="password" class="input-field" placeholder="Senha de Acesso" />
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button type="submit" class="login-button">
+                        <span>INICIAR SESSÃO</span>
+                        <i class="fas fa-arrow-right-to-bracket"></i>
+                    </button>
+                    
+                    <button type="button" class="clear-button">
+                        <i class="fas fa-eraser"></i>
+                        <span>LIMPAR</span>
+                    </button>
+                </div>
+            </EditForm>
+
+            <div class="status-message">
+                <i class="fas fa-circle-info"></i>
+                <span>Verifique seu ID e senha para acesso</span>
+            </div>
+        </div>
     </div>
-
-    <button type="submit" class="btn btn-primary mt-3">Entrar</button>
-</EditForm>
-
-@if (!string.IsNullOrEmpty(errorMessage))
-{
-    <div class="alert alert-danger mt-3">@errorMessage</div>
-}
-
-<a href="/register" class="btn btn-link mt-3">Criar nova conta</a>
-
-@code {
-    private LoginModel loginModel = new();
-    private string errorMessage = string.Empty;
-
-    private void HandleLogin()
-    {
-        if (UserService.ValidateUser(loginModel.Username, loginModel.Password))
-        {
-            // Autenticação bem-sucedida
-            Navigation.NavigateTo("/", true);
-        }
-        else
-        {
-            errorMessage = "Usuário ou senha inválidos";
-        }
-    }
-
-    public class LoginModel
-    {
-        public string Username { get; set; }
-        public string Password { get; set; }
-    }
-}    using DL6000WebConfig.Services;
+</div>

@@ -126,35 +126,6 @@ namespace DL6000WebConfig.Pages
             shouldUpdate = true;
         }
 
-        // private async Task SaveVariable()
-        // {
-        //     if (editVariable == null || originalVariable == null) return;
-
-        //     try
-        //     {
-        //         var payload = new
-        //         {
-        //             original = originalVariable,
-        //             updated = editVariable
-        //         };
-
-        //         var response = await Http.PutAsJsonAsync("/api/modbus/variables", payload);
-        //         if (response.IsSuccessStatusCode)
-        //         {
-        //             await LoadVariables();
-        //             CloseEditModal();
-        //         }
-        //         else
-        //         {
-        //             Console.WriteLine($"Erro ao salvar: {response.StatusCode}");
-        //         }
-        //     }
-        //     catch (Exception ex)
-        //     {
-        //         Console.WriteLine($"Erro ao salvar variável: {ex}");
-        //     }
-        // }
-
         private async Task SaveVariable()
         {
             if (editVariable == null || originalVariable == null) return;

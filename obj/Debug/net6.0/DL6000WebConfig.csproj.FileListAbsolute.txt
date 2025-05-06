@@ -42,3 +42,5 @@ C:\Users\Niele\Desktop\DL6000\DL6000WebConfig\obj\Debug\net6.0\scopedcss\Pages\G
 C:\Users\Niele\Desktop\DL6000\DL6000WebConfig\obj\Debug\net6.0\scopedcss\Pages\Monitor.razor.rz.scp.css
 C:\Users\Niele\Desktop\DL6000\DL6000WebConfig\obj\Debug\net6.0\scopedcss\Pages\Sobre.razor.rz.scp.css
 C:\Users\Niele\Desktop\DL6000\DL6000WebConfig\bin\Debug\net6.0\variablesBK.json
+C:\Users\Niele\Desktop\DL6000\DL6000WebConfig\bin\Debug\net6.0\users.json
+C:\Users\Niele\Desktop\DL6000\DL6000WebConfig\obj\Debug\net6.0\scopedcss\Pages\Login.razor.rz.scp.css

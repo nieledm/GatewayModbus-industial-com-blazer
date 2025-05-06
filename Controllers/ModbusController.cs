@@ -1,42 +1,41 @@
 using DL6000WebConfig.Models;
 using DL6000WebConfig.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace DL6000WebConfig.Controllers
 {
-    public class VariableUpdatePayload
-    {
-        public ModbusVariable Original { get; set; }
-        public ModbusVariable Updated { get; set; }
-    }
-
     [Route("api/modbus")]
     [ApiController]
     public class ModbusController : ControllerBase
     {
         private readonly ModbusVariableService _variableService;
+        private readonly ILogger<ModbusController> _logger;
 
-        public ModbusController(ModbusVariableService variableService)
+        public ModbusController(ModbusVariableService variableService, ILogger<ModbusController> logger)
         {
             _variableService = variableService;
+            _logger = logger;
         }
 
         [HttpGet("variables")]
         public ActionResult<List<ModbusVariable>> GetVariables()
         {
-            var variables = _variableService.GetAll();            
+            var variables = _variableService.GetAll();
             foreach (var v in variables)
             {
                 var config = _variableService.GetDeviceConfig(v.DeviceName);
-                if (config != null){
+                if (config != null)
+                {
                     v.Address = $"40{(v.Offset + 1):D3}";
                     v.RealAddress = v.GetRealAddress(config);
                 }
-                else{
-                    Console.WriteLine($"Configuração não encontrada para o dispositivo {v.DeviceName}");
+                else
+                {
+                    _logger.LogWarning($"Configuração não encontrada para o dispositivo {v.DeviceName}");
                 }                                   
             }
-            return variables;
+            return Ok(variables);
         }
 
         [HttpPost("variables")]
@@ -44,15 +43,25 @@ namespace DL6000WebConfig.Controllers
         {
             _variableService.Add(variable);
 
-            var config = _variableService.GetDeviceConfig();
-            variable.RealAddress = variable.GetRealAddress(config);
+            // Obtém a configuração do dispositivo específico
+            var config = _variableService.GetDeviceConfig(variable.DeviceName);
+            if (config == null)
+            {
+                _logger.LogWarning($"Configuração não encontrada para o dispositivo {variable.DeviceName}");
+                return BadRequest("Configuração do dispositivo não encontrada.");
+            }
 
+            variable.RealAddress = variable.GetRealAddress(config);
             return Ok(variable);
         }
 
         [HttpPut("variables")]
         public IActionResult UpdateVariable([FromBody] VariableUpdatePayload payload)
-        {            
+        {
+            if (payload.Original == null || payload.Updated == null)
+            {
+                return BadRequest("Both Original and Updated variables are required.");
+            }
             _variableService.Update(payload.Updated, payload.Original);
             return Ok();
         }
