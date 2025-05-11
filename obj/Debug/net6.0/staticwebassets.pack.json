@@ -2,7 +2,7 @@
   "Files": [
     {
       "Id": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\DL6000WebConfig.bundle.scp.css",
-      "PackagePath": "staticwebassets\\DL6000WebConfig.frzrnswpl4.bundle.scp.css"
+      "PackagePath": "staticwebassets\\DL6000WebConfig.0qvlmwx3lm.bundle.scp.css"
     },
     {
       "Id": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\JS\\site.js",
@@ -55,6 +55,10 @@
     {
       "Id": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\images\\dl6000-desenho.png",
+      "PackagePath": "staticwebassets\\images\\dl6000-desenho.png"
     },
     {
       "Id": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\images\\dl6000-equipment.png",

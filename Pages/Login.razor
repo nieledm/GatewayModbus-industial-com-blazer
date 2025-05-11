@@ -17,28 +17,54 @@
 
             <EditForm Model="@loginModel" OnValidSubmit="HandleLogin">
                 <DataAnnotationsValidator />
+                <ValidationSummary />
+
+                @if (!string.IsNullOrEmpty(errorMessage))
+                {
+                    <div class="error-message">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <span>@errorMessage</span>
+                    </div>
+                }
 
                 <div class="input-group">
                     <div class="input-icon-wrapper">
                         <i class="fas fa-id-card"></i>
-                        <input type="text" class="input-field" placeholder="ID do Operador" />
+                        <InputText @bind-Value="loginModel.Username" class="input-field" placeholder="ID do Operador" />
                     </div>
+                    <ValidationMessage For="@(() => loginModel.Username)" />
                 </div>
 
                 <div class="input-group">
                     <div class="input-icon-wrapper">
                         <i class="fas fa-fingerprint"></i>
-                        <input type="password" class="input-field" placeholder="Senha de Acesso" />
+                        <InputText type="password" @bind-Value="loginModel.Password" class="input-field" placeholder="Senha de Acesso" />
                     </div>
+                    <ValidationMessage For="@(() => loginModel.Password)" />
+                </div>
+
+                <div class="remember-me">
+                    <label>
+                        <InputCheckbox @bind-Value="loginModel.RememberMe" />
+                        Lembrar minhas credenciais
+                    </label>
                 </div>
 
                 <div class="button-group">
-                    <button type="submit" class="login-button">
-                        <span>INICIAR SESSÃO</span>
-                        <i class="fas fa-arrow-right-to-bracket"></i>
+                    <button type="submit" class="login-button" disabled="@isLoading">
+                        @if (isLoading)
+                        {
+                            <span>CARREGANDO...</span>
+                            <i class="fas fa-spinner fa-spin"></i>
+                        }
+                        else
+                        {
+                            <span>INICIAR SESSÃO</span>
+                            <i class="fas fa-arrow-right-to-bracket"></i>
+                        }
                     </button>
                     
-                    <button type="button" class="clear-button">
+                    <button type="button" class="clear-button" @onclick="() => loginModel = new LoginModel()">
                         <i class="fas fa-eraser"></i>
                         <span>LIMPAR</span>
                     </button>

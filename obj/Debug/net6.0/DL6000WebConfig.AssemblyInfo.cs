@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DL6000WebConfig")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b1460ffc33f35d0955d24c8060b4d6c8aa662797")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0d1b94b182100c814c18f148c68f981b274b0a8d")]
 [assembly: System.Reflection.AssemblyProductAttribute("DL6000WebConfig")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DL6000WebConfig")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
