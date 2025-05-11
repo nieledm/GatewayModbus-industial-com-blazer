@@ -73,7 +73,7 @@ namespace DL6000WebConfig.Pages
                         await JSRuntime.InvokeVoidAsync("localStorage.removeItem", "rememberedLogin");
                     }
 
-                    Navigation.NavigateTo("/", true);
+                    Navigation.NavigateTo("/monitor", true);
                 }
                 else
                 {
