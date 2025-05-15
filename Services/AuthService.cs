@@ -1,26 +1,15 @@
 // Services/AuthService.cs
 using System.Security.Claims;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Http;
 
 namespace DL6000WebConfig.Services
 {
     public class AuthService : IAuthService
-    {
-        private readonly NavigationManager _navigationManager;
+    {        
         private readonly IHttpContextAccessor _httpContextAccessor;
-
-        // public AuthService(
-        //     NavigationManager navigationManager,
-        //     IHttpContextAccessor httpContextAccessor)
-        // {
-        //     _navigationManager = navigationManager;
-        //     _httpContextAccessor = httpContextAccessor;
-        // }
-
+    
         public AuthService(IHttpContextAccessor httpContextAccessor)
         {
             _httpContextAccessor = httpContextAccessor;
@@ -46,7 +35,7 @@ namespace DL6000WebConfig.Services
                     var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                     var principal = new ClaimsPrincipal(identity);
 
-                    await _httpContextAccessor.HttpContext.SignInAsync(
+                    await _httpContextAccessor.HttpContext!.SignInAsync(
                         CookieAuthenticationDefaults.AuthenticationScheme,
                         principal,
                         new AuthenticationProperties
@@ -64,12 +53,6 @@ namespace DL6000WebConfig.Services
             {
                 return new AuthResult { Success = false, ErrorMessage = "Erro durante o login" };
             }
-        }
-
-        public async Task LogoutAsync()
-        {
-            await _httpContextAccessor.HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            _navigationManager.NavigateTo("/login");
         }
     }
 }

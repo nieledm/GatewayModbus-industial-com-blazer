@@ -109,7 +109,7 @@ namespace DL6000WebConfig.Pages
 
         private async Task Logout()
         {
-            await HttpContextAccessor.HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            await HttpContextAccessor.HttpContext!.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             Navigation.NavigateTo("/");
         }
     }

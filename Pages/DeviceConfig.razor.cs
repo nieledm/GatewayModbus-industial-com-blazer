@@ -84,30 +84,33 @@ namespace DL6000WebConfig.Pages
                 int timeoutReceive = int.Parse(form.TimeoutReceive);
                 int cycle = int.Parse(form.Cycle);
 
-                // Verificação de duplicatas
-                if (editandoIndex >= 0)
+                await Task.Run(() =>
                 {
-                    var antigoNome = devices[editandoIndex].Name;
-                    if (form.Name != antigoNome && devices.Any(d => d.Name == form.Name))
+                    // Verificação de duplicatas
+                    if (editandoIndex >= 0)
                     {
-                        mensagemErro = "Já existe um equipamento com este nome.";
-                        return;
+                        var antigoNome = devices[editandoIndex].Name;
+                        if (form.Name != antigoNome && devices.Any(d => d.Name == form.Name))
+                        {
+                            mensagemErro = "Já existe um equipamento com este nome.";
+                            return;
+                        }
+                        
+                        // Atualiza com os valores convertidos
+                        ConfigService.UpdateDevice(form, antigoNome);
                     }
-                    
-                    // Atualiza com os valores convertidos
-                    ConfigService.UpdateDevice(form, antigoNome);
-                }
-                else
-                {
-                    if (devices.Any(d => d.Name == form.Name))
+                    else
                     {
-                        mensagemErro = "Já existe um equipamento com este nome.";
-                        return;
+                        if (devices.Any(d => d.Name == form.Name))
+                        {
+                            mensagemErro = "Já existe um equipamento com este nome.";
+                            return;
+                        }
+                        
+                        // Adiciona com os valores convertidos
+                        ConfigService.AddDevice(form);
                     }
-                    
-                    // Adiciona com os valores convertidos
-                    ConfigService.AddDevice(form);
-                }
+                });
 
                 devices = ConfigService.GetDevices();
                 FecharModal();
@@ -118,7 +121,7 @@ namespace DL6000WebConfig.Pages
             }
         }
 
-        private (bool isValid, string errorMessage) ValidateEquipment(DeviceConfigModel equipment)
+        private (bool isValid, string? errorMessage) ValidateEquipment(DeviceConfigModel equipment)
         {
             #region Validação do device.name
             if (string.IsNullOrWhiteSpace(equipment.Name))
@@ -214,12 +217,13 @@ namespace DL6000WebConfig.Pages
             #endregion
             return (true, null);
         }   
-        private async Task ExcluirEquipamento(int index)
+        private Task ExcluirEquipamento(int index)
         {
             var device = devices[index];
             ConfigService.DeleteDevice(device.Name);
             VariableService.DeleteAllVariablesForDevice(device.Name);
             devices.RemoveAt(index);
+            return Task.CompletedTask;
         }
 
         private async Task ExportJson()
@@ -229,16 +233,18 @@ namespace DL6000WebConfig.Pages
         }
 
         private async Task ImportJson(ChangeEventArgs e)
-        {
-            var file = ((IBrowserFile)e.Value);
-            var buffer = new byte[file.Size];
-            await file.OpenReadStream().ReadAsync(buffer);
-            var json = System.Text.Encoding.UTF8.GetString(buffer);
-            var importedDevices = JsonSerializer.Deserialize<List<DeviceConfigModel>>(json);
-
-            if (importedDevices != null)
+        {            
+            if (e.Value is IBrowserFile file)
             {
-                devices = importedDevices;
+                var buffer = new byte[file.Size];
+                await file.OpenReadStream().ReadAsync(buffer);
+                var json = System.Text.Encoding.UTF8.GetString(buffer);
+                var importedDevices = JsonSerializer.Deserialize<List<DeviceConfigModel>>(json);
+
+                if (importedDevices != null)
+                {
+                    devices = importedDevices;
+                }
             }
         }
 

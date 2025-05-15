@@ -1,2 +1,2 @@
-using Blazored.LocalStorage;
 dotnet add package Microsoft.AspNetCore.Components.Authorization
+dotnet add package NModbus4.NetCore --version 1.0.4

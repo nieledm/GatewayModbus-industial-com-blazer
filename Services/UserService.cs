@@ -6,14 +6,14 @@ namespace DL6000WebConfig.Services
 {
     public class User
     {
-        public string Username { get; set; }
-        public string Password { get; set; } // Em produção, armazene hash, não a senha em texto puro
+        public string Username { get; set; } = string.Empty;
+        public string Password { get; set; } = string.Empty;
     }
 
     public class UserService
     {
         private const string UsersFile = "users.json";
-        private List<User> _users;
+        private List<User> _users = new();
 
         public UserService()
         {

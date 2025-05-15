@@ -1,7 +1,6 @@
 using DL6000WebConfig.Models;
 using DL6000WebConfig.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 
 namespace DL6000WebConfig.Controllers
 {

@@ -13,7 +13,11 @@ builder.Services.AddSingleton<ModbusVariableService>(sp =>
     var configService = sp.GetRequiredService<ConfigService>();
     return new ModbusVariableService(Path.Combine("variables.json"), configService);
 });
-// "..",
+
+//adicionando o caminho do arquivo de configurção do DL6000
+builder.Services.AddSingleton<ConfigService>(sp =>
+    new ConfigService(Path.Combine("..", "DL6000_TO_MODBUS_SLAVE.exe.config")));
+
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 
@@ -32,10 +36,6 @@ builder.Services.AddScoped<HttpClient>(sp =>
     var navManager = sp.GetRequiredService<NavigationManager>();
     return new HttpClient { BaseAddress = new Uri(navManager.BaseUri) };
 });;
-
-//adicionando o caminho do arquivo de configurção do DL6000
-builder.Services.AddSingleton<ConfigService>(sp =>
-    new ConfigService(Path.Combine("..", "DL6000_TO_MODBUS_SLAVE.exe.config")));
 
 #region Autenticação
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
