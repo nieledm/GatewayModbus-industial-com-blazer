@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using DL6000WebConfig.Data;
 using DL6000WebConfig.Services;
+using Microsoft.AspNetCore.Components.Authorization;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -41,15 +42,18 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     .AddCookie(options =>
     {
         options.Cookie.Name = "auth_token";
-        options.LoginPath = "/login";
+        options.LoginPath = "/";
         options.Cookie.HttpOnly = true;
+        options.Cookie.SecurePolicy = CookieSecurePolicy.None;
+        options.Cookie.SameSite = SameSiteMode.Lax;
         options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
         options.SlidingExpiration = true;
     });
-
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddSingleton<UserService>();
+builder.Services.AddAuthorizationCore();
+builder.Services.AddHttpContextAccessor();
 #endregion
 
 var app = builder.Build();
@@ -64,7 +68,6 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 app.UseStaticFiles();
 
 app.UseRouting();
@@ -73,11 +76,12 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapBlazorHub();
-app.MapFallbackToPage("/_Host");
-
 // MAPEIA AS ROTAS DA API
 app.MapControllers();
 
-app.Run();
+app.MapBlazorHub();
+app.MapFallbackToPage("/_Host");
 
+// app.UseExceptionHandler("/Error");
+
+app.Run();

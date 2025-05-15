@@ -34,8 +34,8 @@
 
 @code {
 
-    [Inject]
-    public NavigationManager Navigation { get; set; } = null!;
+    [Inject] public HttpClient Http { get; set; } = null!;
+    [Inject] public NavigationManager Navigation { get; set; } = null!;
 
     [Inject]
     public IJSRuntime JSRuntime { get; set; } = null!;
@@ -50,10 +50,15 @@
 
     private async Task Logout()
     {
-        // Limpa as credenciais salvas (se houver)
-        await JSRuntime.InvokeVoidAsync("localStorage.removeItem", "rememberedLogin");
-        
-        // Redireciona para a página de login
-        Navigation.NavigateTo("/", true);
+        try
+        {
+            await Http.PostAsync("api/auth/logout", null); // Chama o logout do servidor
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Erro ao fazer logout: {ex.Message}");
+        }
+
+        Navigation.NavigateTo("/", true); // Redireciona para login
     }
 }

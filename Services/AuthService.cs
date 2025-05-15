@@ -13,19 +13,28 @@ namespace DL6000WebConfig.Services
         private readonly NavigationManager _navigationManager;
         private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public AuthService(
-            NavigationManager navigationManager,
-            IHttpContextAccessor httpContextAccessor)
+        // public AuthService(
+        //     NavigationManager navigationManager,
+        //     IHttpContextAccessor httpContextAccessor)
+        // {
+        //     _navigationManager = navigationManager;
+        //     _httpContextAccessor = httpContextAccessor;
+        // }
+
+        public AuthService(IHttpContextAccessor httpContextAccessor)
         {
-            _navigationManager = navigationManager;
             _httpContextAccessor = httpContextAccessor;
         }
 
         public async Task<AuthResult> LoginAsync(string username, string password)
         {
+            username = username?.Trim() ?? "";
+            password = password?.Trim() ?? "";
+
+            Console.WriteLine($"LoginAsync chamado com username='{username}' e password='{password}'");
+            
             try
             {
-                // Implemente sua lógica real de autenticação aqui
                 if (username == "admin" && password == "admin123")
                 {
                     var claims = new List<Claim>
@@ -51,7 +60,7 @@ namespace DL6000WebConfig.Services
 
                 return new AuthResult { Success = false, ErrorMessage = "Credenciais inválidas" };
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new AuthResult { Success = false, ErrorMessage = "Erro durante o login" };
             }

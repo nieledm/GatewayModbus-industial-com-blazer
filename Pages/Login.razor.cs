@@ -2,12 +2,19 @@ using Microsoft.AspNetCore.Components;
 using DL6000WebConfig.Services;
 using Microsoft.JSInterop;
 using System.Text.Json;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
 using System.ComponentModel.DataAnnotations;
+
+
 
 namespace DL6000WebConfig.Pages
 {
     public partial class Login
     {
+        [Inject] public IAuthService AuthService { get; set; } = null!;
+
+
         [Inject] 
         public UserService UserService { get; set; } = null!;
         
@@ -16,6 +23,10 @@ namespace DL6000WebConfig.Pages
         
         [Inject]
         public IJSRuntime JSRuntime { get; set; } = null!;
+        
+        [Inject] public IHttpContextAccessor HttpContextAccessor { get; set; } = null!;
+        
+        [Inject] public HttpClient Http { get; set; } = null!;
 
         private LoginModel loginModel = new();
         private string errorMessage = string.Empty;
@@ -57,39 +68,32 @@ namespace DL6000WebConfig.Pages
             isLoading = true;
             errorMessage = string.Empty;
             StateHasChanged();
-            
+
             try
             {
-                if (UserService.ValidateUser(loginModel.Username, loginModel.Password))
-                {
-                    if (loginModel.RememberMe)
-                    {
-                        await JSRuntime.InvokeVoidAsync("localStorage.setItem", 
-                            "rememberedLogin", 
-                            JsonSerializer.Serialize(loginModel));
-                    }
-                    else
-                    {
-                        await JSRuntime.InvokeVoidAsync("localStorage.removeItem", "rememberedLogin");
-                    }
+                var response = await Http.PostAsJsonAsync("api/auth/login", loginModel);
 
+                if (response.IsSuccessStatusCode)
+                {
+                    Console.WriteLine($"Sucesso dentro do if: {response.IsSuccessStatusCode}");
                     Navigation.NavigateTo("/monitor", true);
                 }
                 else
                 {
-                    errorMessage = "Usuário ou senha inválidos";
+                    errorMessage = "Usuário ou senha inválidos.";
                 }
             }
             catch (Exception ex)
             {
-                errorMessage = "Erro ao processar login: " + ex.Message;
+                errorMessage = "Erro durante o login: " + ex.Message;
             }
             finally
             {
                 isLoading = false;
                 StateHasChanged();
             }
-        }
+}
+
 
         public class LoginModel
         {
@@ -101,6 +105,12 @@ namespace DL6000WebConfig.Pages
             public string Password { get; set; } = string.Empty;
 
             public bool RememberMe { get; set; }
+        }
+
+        private async Task Logout()
+        {
+            await HttpContextAccessor.HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            Navigation.NavigateTo("/");
         }
     }
 }

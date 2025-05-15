@@ -1,0 +1,2 @@
+using Blazored.LocalStorage;
+dotnet add package Microsoft.AspNetCore.Components.Authorization

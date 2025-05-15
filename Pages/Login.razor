@@ -15,10 +15,7 @@
                 <p class="subtitle">Autenticação de Operador</p>
             </div>
 
-            <EditForm Model="@loginModel" OnValidSubmit="HandleLogin">
-                <DataAnnotationsValidator />
-                <ValidationSummary />
-
+            <form method="post" action="api/auth/login">
                 @if (!string.IsNullOrEmpty(errorMessage))
                 {
                     <div class="error-message">
@@ -30,22 +27,20 @@
                 <div class="input-group">
                     <div class="input-icon-wrapper">
                         <i class="fas fa-id-card"></i>
-                        <InputText @bind-Value="loginModel.Username" class="input-field" placeholder="ID do Operador" />
+                        <input type="text" id="username" name="Username" class="input-field" placeholder="ID do Operador" required />
                     </div>
-                    <ValidationMessage For="@(() => loginModel.Username)" />
                 </div>
 
                 <div class="input-group">
                     <div class="input-icon-wrapper">
                         <i class="fas fa-fingerprint"></i>
-                        <InputText type="password" @bind-Value="loginModel.Password" class="input-field" placeholder="Senha de Acesso" />
+                        <input type="password" id="password" name="Password" class="input-field" placeholder="Senha de Acesso" required />
                     </div>
-                    <ValidationMessage For="@(() => loginModel.Password)" />
                 </div>
 
                 <div class="remember-me">
                     <label>
-                        <InputCheckbox @bind-Value="loginModel.RememberMe" />
+                        <input type="checkbox" name="RememberMe" />
                         Lembrar minhas credenciais
                     </label>
                 </div>
@@ -69,7 +64,7 @@
                         <span>LIMPAR</span>
                     </button>
                 </div>
-            </EditForm>
+            </form>
 
             <div class="status-message">
                 <i class="fas fa-circle-info"></i>
