@@ -48,17 +48,22 @@
         collapseNavMenu = !collapseNavMenu;
     }
 
+    @* Lógica para logiut *@
+    private IJSObjectReference? _jsModule;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            _jsModule = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./js/site.js");
+        }
+    }
+
     private async Task Logout()
     {
-        try
+        if (_jsModule is not null)
         {
-            await Http.PostAsync("api/auth/logout", null); // Chama o logout do servidor
+            await _jsModule.InvokeVoidAsync("logoutUser");
         }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Erro ao fazer logout: {ex.Message}");
-        }
-
-        Navigation.NavigateTo("/", true); // Redireciona para login
     }
 }

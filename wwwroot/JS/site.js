@@ -88,3 +88,12 @@ window.openEmailClient = function(email) {
         window.location.href = `mailto:${email}`;
     }
 };
+
+export async function logoutUser() {
+    await fetch('/api/auth/logout', {
+        method: 'POST',
+        credentials: 'include'
+    });
+
+    window.location.href = '/';
+}
