@@ -84,6 +84,23 @@ namespace DL6000WebConfig.Pages
                 int timeoutReceive = int.Parse(form.TimeoutReceive);
                 int cycle = int.Parse(form.Cycle);
 
+                if (!int.TryParse(form.StartIndexDL1, out var novoDL1))
+                {
+                    mensagemErro = "Start Index DL1 deve ser um número inteiro válido.";
+                    return;
+                }
+
+                // Garante que o novo DL1 não sobrepõe com nenhum DL2 existente
+                bool sobreposicao = devices
+                    .Where((d, index) => index != editandoIndex) // Ignora o próprio item em edição
+                    .Any(d => int.TryParse(d.StartIndexDL2, out var existenteDL2) && novoDL1 <= existenteDL2);
+
+                if (sobreposicao)
+                {
+                    mensagemErro = "Sobreposição de memórias: o Start Index deve ser maior que os End Index dos outros equipamentos .";
+                    return;
+                }
+
                 await Task.Run(() =>
                 {
                     // Verificação de duplicatas
@@ -95,7 +112,7 @@ namespace DL6000WebConfig.Pages
                             mensagemErro = "Já existe um equipamento com este nome.";
                             return;
                         }
-                        
+
                         // Atualiza com os valores convertidos
                         ConfigService.UpdateDevice(form, antigoNome);
                     }
@@ -106,7 +123,7 @@ namespace DL6000WebConfig.Pages
                             mensagemErro = "Já existe um equipamento com este nome.";
                             return;
                         }
-                        
+
                         // Adiciona com os valores convertidos
                         ConfigService.AddDevice(form);
                     }
@@ -210,9 +227,9 @@ namespace DL6000WebConfig.Pages
                 return (false, "Start Index DL2 não pode ser negativo.");
             }
 
-            if (startDL2 > 0 && startDL2 <= startDL1)
+            if (startDL2 <= startDL1)
             {
-                return (false, "Start Index DL2 deve ser maior que DL1 ou igual a 0.");
+                return (false, "Start Index DL2 deve ser maior que DL1.");
             }
             #endregion
             return (true, null);
