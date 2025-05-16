@@ -20,8 +20,7 @@ namespace DL6000WebConfig.Controllers
 
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromForm] LoginRequest model)
-        {
-            
+        {                        
             if (_userService.ValidateUser(model.Username, model.Password))
             {
                 var claims = new List<Claim>
@@ -35,10 +34,8 @@ namespace DL6000WebConfig.Controllers
                 try
                 {
                     await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
-                    Console.WriteLine($"Cookies: {CookieAuthenticationDefaults.AuthenticationScheme}");
-                    Console.WriteLine($"Principal: {principal}");
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     Console.WriteLine($"Erro ao criar cookie: {ex.Message}");
                     throw;
@@ -47,7 +44,9 @@ namespace DL6000WebConfig.Controllers
                 return Redirect("/monitor");
             }
 
-            return Unauthorized(new { Success = false, Message = "Credenciais inválidas" });
+            
+            return Redirect($"/?mensagem=1");
+            // Unauthorized(new { Success = false, Message = "Credenciais inválidas" });
         }
 
         [HttpPost("logout")]

@@ -15,7 +15,21 @@
                 <p class="subtitle">Autenticação de Operador</p>
             </div>
 
-            <form method="post" action="api/auth/login">
+            <form method="post" action="api/auth/login">                
+                <div class="input-group">
+                    <div class="input-icon-wrapper">
+                        <i class="fas fa-id-card"></i>
+                        <input type="text" id="username" @bind="loginModel.Username" name="Username" class="form-control" placeholder="ID do Operador" required />
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <div class="input-icon-wrapper">
+                        <i class="fas fa-fingerprint"></i>
+                        <input type="password" id="password" @bind="loginModel.Password" name="Password" class="form-control" placeholder="Senha de Acesso" required />
+                    </div>
+                </div>
+
                 @if (!string.IsNullOrEmpty(errorMessage))
                 {
                     <div class="error-message">
@@ -23,20 +37,6 @@
                         <span>@errorMessage</span>
                     </div>
                 }
-
-                <div class="input-group">
-                    <div class="input-icon-wrapper">
-                        <i class="fas fa-id-card"></i>
-                        <input type="text" id="username" name="Username" class="input-field" placeholder="ID do Operador" required />
-                    </div>
-                </div>
-
-                <div class="input-group">
-                    <div class="input-icon-wrapper">
-                        <i class="fas fa-fingerprint"></i>
-                        <input type="password" id="password" name="Password" class="input-field" placeholder="Senha de Acesso" required />
-                    </div>
-                </div>
 
                 <div class="button-group">
                     <button type="submit" class="login-button" disabled="@isLoading">

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Ymr1r6RWaC940+bQnvUSmkpzf0GkyDejcKnjkw9AWr8=",
+  "Hash": "Z/CALPz5NewbvF4WQnJa4YXNa4/HbkzaYrKxLOljIwg=",
   "Source": "DL6000WebConfig",
   "BasePath": "_content/DL6000WebConfig",
   "Mode": "Default",
@@ -353,6 +353,27 @@
       "OriginalItemSpec": "wwwroot\\images\\dl6000-equipment.png"
     },
     {
+      "Identity": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\JS\\.bash",
+      "SourceId": "DL6000WebConfig",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\",
+      "BasePath": "_content/DL6000WebConfig",
+      "RelativePath": "JS/#[.{fingerprint}]?.bash",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "5ipweew5fc",
+      "Integrity": "47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\JS\\.bash"
+    },
+    {
       "Identity": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\JS\\site.js",
       "SourceId": "DL6000WebConfig",
       "SourceType": "Discovered",
@@ -367,8 +388,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "1cou6c6ln5",
-      "Integrity": "sew/jmQQqmsiefP24TImjq+gR2uNSQ6GuLMTdVg/pEo=",
+      "Fingerprint": "ky5wmbem3d",
+      "Integrity": "1NdsYR6DkKnws4zPMhqE6by7AlvI6COBxRlfLvf58uU=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\JS\\site.js"
@@ -1688,8 +1709,8 @@
       ]
     },
     {
-      "Route": "JS/site.1cou6c6ln5.js",
-      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\JS\\site.js",
+      "Route": "JS/.5ipweew5fc.bash",
+      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\JS\\.bash",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1698,19 +1719,19 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3033"
+          "Value": "0"
         },
         {
           "Name": "Content-Type",
-          "Value": "text/javascript"
+          "Value": "application/octet-stream"
         },
         {
           "Name": "ETag",
-          "Value": "\"sew/jmQQqmsiefP24TImjq+gR2uNSQ6GuLMTdVg/pEo=\""
+          "Value": "\"47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 16 May 2025 14:01:54 GMT"
+          "Value": "Fri, 16 May 2025 17:06:25 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1720,15 +1741,52 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "1cou6c6ln5"
+          "Value": "5ipweew5fc"
         },
         {
           "Name": "label",
-          "Value": "JS/site.js"
+          "Value": "JS/.bash"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-sew/jmQQqmsiefP24TImjq+gR2uNSQ6GuLMTdVg/pEo="
+          "Value": "sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU="
+        }
+      ]
+    },
+    {
+      "Route": "JS/.bash",
+      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\JS\\.bash",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "0"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 16 May 2025 17:06:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU="
         }
       ]
     },
@@ -1743,7 +1801,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3033"
+          "Value": "3381"
         },
         {
           "Name": "Content-Type",
@@ -1751,11 +1809,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"sew/jmQQqmsiefP24TImjq+gR2uNSQ6GuLMTdVg/pEo=\""
+          "Value": "\"1NdsYR6DkKnws4zPMhqE6by7AlvI6COBxRlfLvf58uU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 16 May 2025 14:01:54 GMT"
+          "Value": "Fri, 16 May 2025 14:42:01 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1765,7 +1823,52 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-sew/jmQQqmsiefP24TImjq+gR2uNSQ6GuLMTdVg/pEo="
+          "Value": "sha256-1NdsYR6DkKnws4zPMhqE6by7AlvI6COBxRlfLvf58uU="
+        }
+      ]
+    },
+    {
+      "Route": "JS/site.ky5wmbem3d.js",
+      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\JS\\site.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3381"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"1NdsYR6DkKnws4zPMhqE6by7AlvI6COBxRlfLvf58uU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 16 May 2025 14:42:01 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ky5wmbem3d"
+        },
+        {
+          "Name": "label",
+          "Value": "JS/site.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-1NdsYR6DkKnws4zPMhqE6by7AlvI6COBxRlfLvf58uU="
         }
       ]
     }

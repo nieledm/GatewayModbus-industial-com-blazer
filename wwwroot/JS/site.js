@@ -97,3 +97,18 @@ export async function logoutUser() {
 
     window.location.href = '/';
 }
+
+// RESPOSTA LOGIN
+window.loginRequest = async (url, formData) => {
+    const response = await fetch(url, {
+        method: 'POST',
+        credentials: 'include', // Importante para cookies!
+        body: formData
+    });
+
+    if (response.redirected) {
+        return { Success: true };
+    }
+
+    return await response.json();
+};

@@ -15,17 +15,17 @@ namespace DL6000WebConfig.Pages
         [Inject] public IAuthService AuthService { get; set; } = null!;
 
 
-        [Inject] 
+        [Inject]
         public UserService UserService { get; set; } = null!;
-        
+
         [Inject]
         public NavigationManager Navigation { get; set; } = null!;
-        
+
         [Inject]
         public IJSRuntime JSRuntime { get; set; } = null!;
-        
+
         [Inject] public IHttpContextAccessor HttpContextAccessor { get; set; } = null!;
-        
+
         [Inject] public HttpClient Http { get; set; } = null!;
 
         private LoginModel loginModel = new();
@@ -41,6 +41,12 @@ namespace DL6000WebConfig.Pages
                 isInitialized = true;
                 StateHasChanged();
             }
+        }
+
+        public class ErrorResponse
+        {
+            public bool Success { get; set; }
+            public string Message { get; set; } = null!;
         }
 
         private async Task LoadRememberedCredentials()
@@ -75,12 +81,12 @@ namespace DL6000WebConfig.Pages
 
                 if (response.IsSuccessStatusCode)
                 {
-                    Console.WriteLine($"Sucesso dentro do if: {response.IsSuccessStatusCode}");
                     Navigation.NavigateTo("/monitor", true);
                 }
                 else
                 {
-                    errorMessage = "Usuário ou senha inválidos.";
+                    var errorResponse = await response.Content.ReadFromJsonAsync<ErrorResponse>();
+                    errorMessage = errorResponse?.Message ?? "Usuário ou senha inválidos.";
                 }
             }
             catch (Exception ex)
@@ -92,8 +98,7 @@ namespace DL6000WebConfig.Pages
                 isLoading = false;
                 StateHasChanged();
             }
-}
-
+        }
 
         public class LoginModel
         {
@@ -111,6 +116,19 @@ namespace DL6000WebConfig.Pages
         {
             await HttpContextAccessor.HttpContext!.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             Navigation.NavigateTo("/");
+        }
+        
+        protected override void OnInitialized()
+        {
+            var uri = Navigation.ToAbsoluteUri(Navigation.Uri);
+            var queryParams = Microsoft.AspNetCore.WebUtilities.QueryHelpers.ParseQuery(uri.Query);
+            if (queryParams.TryGetValue("mensagem", out var mensagem))
+            {
+                if (mensagem == "1")
+                {
+                    errorMessage = "Usuário ou senha inválidos.";
+                }
+            }
         }
     }
 }
