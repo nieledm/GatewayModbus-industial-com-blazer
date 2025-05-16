@@ -1,14 +1,6 @@
 [
   {
     "DeviceName": "DL6000_1",
-    "Name": "Vaz\u00E3o",
-    "Offset": 2,
-    "Address": "40003",
-    "Value": 0,
-    "RealAddress": 0
-  },
-  {
-    "DeviceName": "DL6000_1",
     "Name": "Temperatura",
     "Offset": 32,
     "Address": "40033",
@@ -30,5 +22,13 @@
     "Address": "40001",
     "Value": 0,
     "RealAddress": 0
+  },
+  {
+    "DeviceName": "DL6000_1",
+    "Name": "Vaz\u00E3o",
+    "Offset": 2,
+    "Address": "40003",
+    "Value": 0,
+    "RealAddress": 4
   }
 ]

@@ -7,26 +7,22 @@
 
 <div class="config-container">
     <h3 class="config-title">
-        <i class="fas fa-cog"></i>
         <span style="display:inline-block;width:24px;text-align:center;">⚙️</span>
         Configuração de Equipamentos DL6000
     </h3>
 
     <div class="config-actions">
         <button class="btn btn-primary" @onclick="() => AbrirModal(null)">
-            <i class="fas fa-plus"></i>
             <span style="display:inline-block;width:20px;text-align:center;">➕</span>
             Adicionar Equipamento
         </button>        
         <div class="d-flex gap-2">
             <button @onclick="ExportJson" class="btn-io">
-                <i class="fas fa-upload"></i>
                 <span class="emoji">📤</span>
                 Exportar
             </button>
             
             <label class="btn-io">
-                <i class="fas fa-download"></i>
                 <span class="emoji">📥</span>
                 Importar
                 <input type="file" @onchange="ImportJson" hidden />
