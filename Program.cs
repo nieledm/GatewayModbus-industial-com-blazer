@@ -8,15 +8,31 @@ using Microsoft.AspNetCore.Components.Authorization;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// builder.Services.AddSingleton<ModbusVariableService>(sp =>
+// {
+//     var configService = sp.GetRequiredService<ConfigService>();
+//     return new ModbusVariableService(Path.Combine("variables.json"), configService);
+// });
+
+// //adicionando o caminho do arquivo de configurção do DL6000
+// builder.Services.AddSingleton<ConfigService>(sp =>
+//     new ConfigService(Path.Combine("..", "DL6000_TO_MODBUS_SLAVE.exe.config")));
+
+// Registra ConfigService primeiro (sem ModbusVariableService)
+builder.Services.AddSingleton<ConfigService>(sp =>
+{
+    var path = Path.Combine(AppContext.BaseDirectory, "DL6000_TO_MODBUS_SLAVE.exe.config");
+    return new ConfigService(path);
+});
+
+// Registra ModbusVariableService e injeta ConfigService nele
 builder.Services.AddSingleton<ModbusVariableService>(sp =>
 {
     var configService = sp.GetRequiredService<ConfigService>();
-    return new ModbusVariableService(Path.Combine("variables.json"), configService);
+    var modbusService = new ModbusVariableService(Path.Combine(AppContext.BaseDirectory, "variables.json"), configService);
+    configService.SetVariableService(modbusService);
+    return modbusService;
 });
-
-//adicionando o caminho do arquivo de configurção do DL6000
-builder.Services.AddSingleton<ConfigService>(sp =>
-    new ConfigService(Path.Combine("..", "DL6000_TO_MODBUS_SLAVE.exe.config")));
 
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();

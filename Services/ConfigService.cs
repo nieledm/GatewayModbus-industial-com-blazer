@@ -8,14 +8,20 @@ namespace DL6000WebConfig.Services
         private readonly string _path;
         private readonly XDocument _xml;
 
-        private ModbusVariableService _variableService;
+        private ModbusVariableService? _variableService;
 
         public ConfigService(string path)
         {
             _path = Path.GetFullPath(path);
             _xml = XDocument.Load(_path);
         }
+
+        public void SetVariableService(ModbusVariableService variableService)
+        {
+            _variableService = variableService;
+        }
         #region Método para buscar device por nome
+
         public DeviceConfigModel? GetDeviceByName(string deviceName)
         {
             var devices = GetDevices();
@@ -120,20 +126,28 @@ namespace DL6000WebConfig.Services
             if (oldSuffix != newSuffix)
             {
                 // no json
-                var variables = _variableService.GetAll();
-                foreach (var v in variables.Where(v => v.DeviceName == oldName))
+                if (_variableService is not null)
                 {
-                    v.DeviceName = updated.Name;
+                    var variables = _variableService.GetAll();
+                    foreach (var v in variables.Where(v => v.DeviceName == oldName))
+                    {
+                        v.DeviceName = updated.Name;
+                    }
+                    _variableService.Save(variables);
+
+                    var oldKeys = appSettings.Elements("add")
+                        .Where(e => e.Attribute("key")?.Value?.EndsWith("_DL_6000_" + oldSuffix) == true)
+                        .ToList();
+
+                    foreach (var el in oldKeys)
+                    {
+                        el.Remove();
+                    }
                 }
-                _variableService.Save(variables);
-
-                var oldKeys = appSettings.Elements("add")
-                    .Where(e => e.Attribute("key")?.Value?.EndsWith("_DL_6000_" + oldSuffix) == true)
-                    .ToList();
-
-                foreach (var el in oldKeys)
+                else
                 {
-                    el.Remove();
+                    // log ou exception
+                    throw new InvalidOperationException("ModbusVariableService não foi injetado.");
                 }
             }
 

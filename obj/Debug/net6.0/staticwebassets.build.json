@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "q9VRP4SAD1MgbC8NviAX/fpU6qcZwsafDNztaeh0oT8=",
+  "Hash": "Ymr1r6RWaC940+bQnvUSmkpzf0GkyDejcKnjkw9AWr8=",
   "Source": "DL6000WebConfig",
   "BasePath": "_content/DL6000WebConfig",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "DL6000WebConfig\\wwwroot",
       "Source": "DL6000WebConfig",
-      "ContentRoot": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\",
       "BasePath": "_content/DL6000WebConfig",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\obj\\Debug\\net6.0\\scopedcss\\bundle\\DL6000WebConfig.styles.css",
+      "Identity": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\obj\\Debug\\net6.0\\scopedcss\\bundle\\DL6000WebConfig.styles.css",
       "SourceId": "DL6000WebConfig",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
       "BasePath": "_content/DL6000WebConfig",
       "RelativePath": "DL6000WebConfig#[.{fingerprint}]?.styles.css",
       "AssetKind": "All",
@@ -35,13 +35,13 @@
       "Integrity": "KEY/cq4AYRu1lRfLnAO0AMTsX6zLy5c6XqBVoiDHl80=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\obj\\Debug\\net6.0\\scopedcss\\bundle\\DL6000WebConfig.styles.css"
+      "OriginalItemSpec": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\obj\\Debug\\net6.0\\scopedcss\\bundle\\DL6000WebConfig.styles.css"
     },
     {
-      "Identity": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\DL6000WebConfig.bundle.scp.css",
+      "Identity": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\DL6000WebConfig.bundle.scp.css",
       "SourceId": "DL6000WebConfig",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/DL6000WebConfig",
       "RelativePath": "DL6000WebConfig#[.{fingerprint}]!.bundle.scp.css",
       "AssetKind": "All",
@@ -56,13 +56,13 @@
       "Integrity": "KEY/cq4AYRu1lRfLnAO0AMTsX6zLy5c6XqBVoiDHl80=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\DL6000WebConfig.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\DL6000WebConfig.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "Identity": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "SourceId": "DL6000WebConfig",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\",
       "BasePath": "_content/DL6000WebConfig",
       "RelativePath": "css/bootstrap/bootstrap.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -80,10 +80,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "DL6000WebConfig",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\",
       "BasePath": "_content/DL6000WebConfig",
       "RelativePath": "css/bootstrap/bootstrap.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -101,10 +101,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "Identity": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
       "SourceId": "DL6000WebConfig",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\",
       "BasePath": "_content/DL6000WebConfig",
       "RelativePath": "css/open-iconic/FONT-LICENSE#[.{fingerprint}]?",
       "AssetKind": "All",
@@ -122,10 +122,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\FONT-LICENSE"
     },
     {
-      "Identity": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
+      "Identity": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
       "SourceId": "DL6000WebConfig",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\",
       "BasePath": "_content/DL6000WebConfig",
       "RelativePath": "css/open-iconic/font/css/open-iconic-bootstrap.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -143,10 +143,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
+      "Identity": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
       "SourceId": "DL6000WebConfig",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\",
       "BasePath": "_content/DL6000WebConfig",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic#[.{fingerprint}]?.eot",
       "AssetKind": "All",
@@ -164,10 +164,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot"
     },
     {
-      "Identity": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
+      "Identity": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
       "SourceId": "DL6000WebConfig",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\",
       "BasePath": "_content/DL6000WebConfig",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic#[.{fingerprint}]?.otf",
       "AssetKind": "All",
@@ -185,10 +185,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf"
     },
     {
-      "Identity": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
+      "Identity": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
       "SourceId": "DL6000WebConfig",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\",
       "BasePath": "_content/DL6000WebConfig",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic#[.{fingerprint}]?.svg",
       "AssetKind": "All",
@@ -206,10 +206,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg"
     },
     {
-      "Identity": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
+      "Identity": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
       "SourceId": "DL6000WebConfig",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\",
       "BasePath": "_content/DL6000WebConfig",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic#[.{fingerprint}]?.ttf",
       "AssetKind": "All",
@@ -227,10 +227,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf"
     },
     {
-      "Identity": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
+      "Identity": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
       "SourceId": "DL6000WebConfig",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\",
       "BasePath": "_content/DL6000WebConfig",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic#[.{fingerprint}]?.woff",
       "AssetKind": "All",
@@ -248,10 +248,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
     },
     {
-      "Identity": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
+      "Identity": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
       "SourceId": "DL6000WebConfig",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\",
       "BasePath": "_content/DL6000WebConfig",
       "RelativePath": "css/open-iconic/ICON-LICENSE#[.{fingerprint}]?",
       "AssetKind": "All",
@@ -269,10 +269,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\ICON-LICENSE"
     },
     {
-      "Identity": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\css\\open-iconic\\README.md",
+      "Identity": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\open-iconic\\README.md",
       "SourceId": "DL6000WebConfig",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\",
       "BasePath": "_content/DL6000WebConfig",
       "RelativePath": "css/open-iconic/README#[.{fingerprint}]?.md",
       "AssetKind": "All",
@@ -290,10 +290,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\README.md"
     },
     {
-      "Identity": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\favicon.ico",
+      "Identity": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\favicon.ico",
       "SourceId": "DL6000WebConfig",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\",
       "BasePath": "_content/DL6000WebConfig",
       "RelativePath": "favicon#[.{fingerprint}]?.ico",
       "AssetKind": "All",
@@ -311,10 +311,10 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\images\\dl6000-desenho.png",
+      "Identity": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\images\\dl6000-desenho.png",
       "SourceId": "DL6000WebConfig",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\",
       "BasePath": "_content/DL6000WebConfig",
       "RelativePath": "images/dl6000-desenho#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -332,10 +332,10 @@
       "OriginalItemSpec": "wwwroot\\images\\dl6000-desenho.png"
     },
     {
-      "Identity": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\images\\dl6000-equipment.png",
+      "Identity": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\images\\dl6000-equipment.png",
       "SourceId": "DL6000WebConfig",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\",
       "BasePath": "_content/DL6000WebConfig",
       "RelativePath": "images/dl6000-equipment#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -353,10 +353,10 @@
       "OriginalItemSpec": "wwwroot\\images\\dl6000-equipment.png"
     },
     {
-      "Identity": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\JS\\site.js",
+      "Identity": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\JS\\site.js",
       "SourceId": "DL6000WebConfig",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\",
       "BasePath": "_content/DL6000WebConfig",
       "RelativePath": "JS/site#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -377,7 +377,7 @@
   "Endpoints": [
     {
       "Route": "css/bootstrap/bootstrap.min.6gzpyzhau4.css",
-      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -422,7 +422,7 @@
     },
     {
       "Route": "css/bootstrap/bootstrap.min.css",
-      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -459,7 +459,7 @@
     },
     {
       "Route": "css/bootstrap/bootstrap.min.css.8inm30yfxf.map",
-      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -504,7 +504,7 @@
     },
     {
       "Route": "css/bootstrap/bootstrap.min.css.map",
-      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -541,7 +541,7 @@
     },
     {
       "Route": "css/open-iconic/FONT-LICENSE",
-      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -578,7 +578,7 @@
     },
     {
       "Route": "css/open-iconic/FONT-LICENSE.48tmkg660f",
-      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -623,7 +623,7 @@
     },
     {
       "Route": "css/open-iconic/font/css/open-iconic-bootstrap.min.cmapd0fi15.css",
-      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
+      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -668,7 +668,7 @@
     },
     {
       "Route": "css/open-iconic/font/css/open-iconic-bootstrap.min.css",
-      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
+      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -705,7 +705,7 @@
     },
     {
       "Route": "css/open-iconic/font/fonts/open-iconic.0uw8dim9nl.eot",
-      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
+      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -750,7 +750,7 @@
     },
     {
       "Route": "css/open-iconic/font/fonts/open-iconic.eot",
-      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
+      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -787,7 +787,7 @@
     },
     {
       "Route": "css/open-iconic/font/fonts/open-iconic.h4d0pazwgy.woff",
-      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
+      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -832,7 +832,7 @@
     },
     {
       "Route": "css/open-iconic/font/fonts/open-iconic.ll5grcv8wv.ttf",
-      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
+      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -877,7 +877,7 @@
     },
     {
       "Route": "css/open-iconic/font/fonts/open-iconic.otf",
-      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
+      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -914,7 +914,7 @@
     },
     {
       "Route": "css/open-iconic/font/fonts/open-iconic.sjnzgf7e1h.svg",
-      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
+      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -959,7 +959,7 @@
     },
     {
       "Route": "css/open-iconic/font/fonts/open-iconic.svg",
-      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
+      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -996,7 +996,7 @@
     },
     {
       "Route": "css/open-iconic/font/fonts/open-iconic.ttf",
-      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
+      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1033,7 +1033,7 @@
     },
     {
       "Route": "css/open-iconic/font/fonts/open-iconic.wk8x8xm0ah.otf",
-      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
+      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1078,7 +1078,7 @@
     },
     {
       "Route": "css/open-iconic/font/fonts/open-iconic.woff",
-      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
+      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1115,7 +1115,7 @@
     },
     {
       "Route": "css/open-iconic/ICON-LICENSE",
-      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
+      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1152,7 +1152,7 @@
     },
     {
       "Route": "css/open-iconic/ICON-LICENSE.4dwjve0o0b",
-      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
+      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1197,7 +1197,7 @@
     },
     {
       "Route": "css/open-iconic/README.8h4oiah9s0.md",
-      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\css\\open-iconic\\README.md",
+      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\open-iconic\\README.md",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1242,7 +1242,7 @@
     },
     {
       "Route": "css/open-iconic/README.md",
-      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\css\\open-iconic\\README.md",
+      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\css\\open-iconic\\README.md",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1279,7 +1279,7 @@
     },
     {
       "Route": "DL6000WebConfig.0qvlmwx3lm.bundle.scp.css",
-      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\DL6000WebConfig.bundle.scp.css",
+      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\DL6000WebConfig.bundle.scp.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1324,7 +1324,7 @@
     },
     {
       "Route": "DL6000WebConfig.0qvlmwx3lm.styles.css",
-      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\obj\\Debug\\net6.0\\scopedcss\\bundle\\DL6000WebConfig.styles.css",
+      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\obj\\Debug\\net6.0\\scopedcss\\bundle\\DL6000WebConfig.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1369,7 +1369,7 @@
     },
     {
       "Route": "DL6000WebConfig.bundle.scp.css",
-      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\DL6000WebConfig.bundle.scp.css",
+      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\DL6000WebConfig.bundle.scp.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1406,7 +1406,7 @@
     },
     {
       "Route": "DL6000WebConfig.styles.css",
-      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\obj\\Debug\\net6.0\\scopedcss\\bundle\\DL6000WebConfig.styles.css",
+      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\obj\\Debug\\net6.0\\scopedcss\\bundle\\DL6000WebConfig.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1443,7 +1443,7 @@
     },
     {
       "Route": "favicon.61n19gt1b8.ico",
-      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\favicon.ico",
+      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\favicon.ico",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1488,7 +1488,7 @@
     },
     {
       "Route": "favicon.ico",
-      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\favicon.ico",
+      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\favicon.ico",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1525,7 +1525,7 @@
     },
     {
       "Route": "images/dl6000-desenho.07ou8dhqy7.png",
-      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\images\\dl6000-desenho.png",
+      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\images\\dl6000-desenho.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1570,7 +1570,7 @@
     },
     {
       "Route": "images/dl6000-desenho.png",
-      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\images\\dl6000-desenho.png",
+      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\images\\dl6000-desenho.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1607,7 +1607,7 @@
     },
     {
       "Route": "images/dl6000-equipment.ktf5igvb7d.png",
-      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\images\\dl6000-equipment.png",
+      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\images\\dl6000-equipment.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1652,7 +1652,7 @@
     },
     {
       "Route": "images/dl6000-equipment.png",
-      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\images\\dl6000-equipment.png",
+      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\images\\dl6000-equipment.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1689,7 +1689,7 @@
     },
     {
       "Route": "JS/site.1cou6c6ln5.js",
-      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\JS\\site.js",
+      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\JS\\site.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1734,7 +1734,7 @@
     },
     {
       "Route": "JS/site.js",
-      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\GatewayModbus-industial-com-blazer\\wwwroot\\JS\\site.js",
+      "AssetFile": "C:\\Users\\Niele\\Desktop\\DL6000\\DL6000WebConfig\\wwwroot\\JS\\site.js",
       "Selectors": [],
       "ResponseHeaders": [
         {

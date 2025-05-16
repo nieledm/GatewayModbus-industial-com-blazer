@@ -9,6 +9,9 @@
   <ItemGroup>
     <PackageReference Include="NModbus4" Version="2.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="6.0.0" />
+    <Content Include="../DL6000_TO_MODBUS_SLAVE.exe.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>
